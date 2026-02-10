@@ -68,6 +68,15 @@ export function CTASection({ onOpenChat }: CTASectionProps) {
               <span className="relative z-10">ask the system</span>
               <ArrowRight className="h-5 w-5 relative z-10 transition-transform duration-300 group-hover:translate-x-1" />
             </button>
+            <p className="mt-4 text-xs text-muted-foreground">
+              or{" "}
+              <a
+                href="mailto:shernanjavier@gmail.com"
+                className="underline-offset-4 hover:underline"
+              >
+                contact me directly
+              </a>
+            </p>
           </div>
         </div>
       </div>
