@@ -48,7 +48,9 @@ export function ChatShell({ open, onClose }: ChatShellProps) {
   ];
 
   return (
-    <aside className="h-screen w-full max-w-md border-l border-border bg-card/95 shadow-xl backdrop-blur sticky top-0">
+    <aside
+      className="fixed inset-x-0 bottom-0 z-40 h-[65vh] border-t border-border bg-card/95 shadow-xl backdrop-blur md:sticky md:top-0 md:h-screen md:w-full md:max-w-md md:border-l md:border-t-0"
+    >
       <div className="flex items-center justify-between border-b border-border px-4 py-3">
         <span className="text-xs font-medium uppercase tracking-[0.16em] text-muted-foreground">
           shernan.chat
@@ -62,7 +64,7 @@ export function ChatShell({ open, onClose }: ChatShellProps) {
         </button>
       </div>
 
-      <div className="flex h-[calc(100vh-3rem)] flex-col">
+      <div className="flex h-full flex-col">
         <div
           ref={scrollerRef}
           className="flex-1 overflow-y-auto px-4 py-4 text-left text-sm space-y-3"
