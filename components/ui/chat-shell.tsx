@@ -58,7 +58,7 @@ export function ChatShell({ open, onClose }: ChatShellProps) {
         <button
           type="button"
           onClick={onClose}
-          className="text-xs text-muted-foreground hover:text-foreground"
+          className="text-xs text-muted-foreground hover:text-foreground cursor-pointer"
         >
           close
         </button>
@@ -87,7 +87,7 @@ export function ChatShell({ open, onClose }: ChatShellProps) {
                       key={q}
                       type="button"
                       onClick={() => !loading && send(q)}
-                      className="rounded-full border border-border bg-background/40 px-3 py-1 text-xs text-foreground/80 hover:text-foreground hover:bg-background/60"
+                      className="rounded-full border border-border bg-background/40 px-3 py-1 text-xs text-foreground/80 hover:text-foreground hover:bg-background/60 cursor-pointer"
                     >
                       {q}
                     </button>
@@ -142,7 +142,7 @@ export function ChatShell({ open, onClose }: ChatShellProps) {
                             key={fq}
                             type="button"
                             onClick={() => !loading && send(fq)}
-                            className="rounded-full border border-border bg-background/40 px-3 py-1 text-xs text-foreground/80 hover:text-foreground hover:bg-background/60"
+                            className="rounded-full border border-border bg-background/40 px-3 py-1 text-xs text-foreground/80 hover:text-foreground hover:bg-background/60 cursor-pointer"
                           >
                             {fq}
                           </button>
@@ -177,7 +177,7 @@ export function ChatShell({ open, onClose }: ChatShellProps) {
             <button
               type="submit"
               disabled={!canSend}
-              className="rounded-full bg-primary px-4 py-2 text-xs font-medium text-primary-foreground disabled:cursor-not-allowed disabled:opacity-60"
+              className="rounded-full bg-primary px-4 py-2 text-xs font-medium text-primary-foreground cursor-pointer disabled:cursor-not-allowed disabled:opacity-60"
             >
               send
             </button>

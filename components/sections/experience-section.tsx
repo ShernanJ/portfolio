@@ -17,7 +17,7 @@ const EXPERIENCE_ITEMS: ExperienceItem[] = [
     id: "stealth",
     role: "founding engineer",
     org: "stealth startup",
-    logoSrc: "/companies/stealth.svg",
+    logoSrc: "/companies/stealth_startup_logo.jpg",
     logoAlt: "stealth startup logo",
     impact:
       "shipped a b2b behavioral intelligence platform with a browser sdk, streaming pipelines, and inference layers for adaptive marketing systems.",
@@ -37,7 +37,7 @@ const EXPERIENCE_ITEMS: ExperienceItem[] = [
     id: "clover-labs",
     role: "founding engineer",
     org: "clover labs",
-    logoSrc: "/companies/clover-labs.svg",
+    logoSrc: "/companies/clover_logo.jpg",
     logoAlt: "clover labs logo",
     impact:
       "built ai-driven growth agents and early infrastructure for scalable distribution systems.",
@@ -57,7 +57,7 @@ const EXPERIENCE_ITEMS: ExperienceItem[] = [
     id: "merchme",
     role: "co-founder & cto",
     org: "merchme",
-    logoSrc: "/companies/merchme.svg",
+    logoSrc: "/companies/merchme_logo.jpg",
     logoAlt: "merchme logo",
     impact:
       "led product architecture and full-stack development for a ugc marketplace connecting creators and brands; supported 100+ creators and active brand partners.",
@@ -77,7 +77,7 @@ const EXPERIENCE_ITEMS: ExperienceItem[] = [
     id: "internships",
     role: "engineering internships (selected)",
     org: "td · thales · taplytics (yc w14 → devcycle)",
-    logoSrc: "/companies/internships.svg",
+    logoSrc: "/companies/td_logo.jpg",
     logoAlt: "internships logo",
     impact:
       "shipped production features across enterprise and startup environments.",
@@ -124,36 +124,36 @@ export function ExperienceSection() {
                     {item.role}
                   </div>
                   {item.id === "internships" ? (
-                    <div className="flex flex-wrap items-center gap-3 text-sm font-medium text-foreground/90">
+                    <div className="flex flex-wrap items-center gap-4 text-sm font-medium text-foreground/90">
                       <div className="flex items-center gap-2">
                         <Image
-                          src="/companies/td.svg"
+                          src="/companies/td_logo.jpg"
                           alt="td logo"
-                          width={16}
-                          height={16}
-                          className="h-4 w-4 rounded-sm border border-border/60 bg-background object-contain"
+                          width={22}
+                          height={22}
+                          className="h-5 w-5 rounded-sm border border-border/60 bg-background object-contain"
                         />
                         <span>td</span>
                       </div>
                       <span className="text-muted-foreground/60">·</span>
                       <div className="flex items-center gap-2">
                         <Image
-                          src="/companies/thales.svg"
+                          src="/companies/thales_logo.jpg"
                           alt="thales logo"
-                          width={16}
-                          height={16}
-                          className="h-4 w-4 rounded-sm border border-border/60 bg-background object-contain"
+                          width={22}
+                          height={22}
+                          className="h-5 w-5 rounded-sm border border-border/60 bg-background object-contain"
                         />
                         <span>thales</span>
                       </div>
                       <span className="text-muted-foreground/60">·</span>
                       <div className="flex items-center gap-2">
                         <Image
-                          src="/companies/taplytics.svg"
+                          src="/companies/taplytics_logo.jpg"
                           alt="taplytics / devcycle logo"
-                          width={16}
-                          height={16}
-                          className="h-4 w-4 rounded-sm border border-border/60 bg-background object-contain"
+                          width={22}
+                          height={22}
+                          className="h-5 w-5 rounded-sm border border-border/60 bg-background object-contain"
                         />
                         <span>taplytics (yc w14 → devcycle)</span>
                       </div>
@@ -164,9 +164,9 @@ export function ExperienceSection() {
                         <Image
                           src={item.logoSrc}
                           alt={item.logoAlt ?? item.org}
-                          width={16}
-                          height={16}
-                          className="h-4 w-4 rounded-sm border border-border/60 bg-background object-contain"
+                          width={22}
+                          height={22}
+                          className="h-5 w-5 rounded-sm border border-border/60 bg-background object-contain"
                         />
                       ) : null}
                       <span>{item.org}</span>
@@ -223,7 +223,7 @@ export function ExperienceSection() {
               href="https://www.linkedin.com/in/shernanjavier"
               target="_blank"
               rel="noreferrer"
-              className="underline-offset-4 hover:underline"
+              className="underline-offset-4 hover:underline cursor-pointer"
             >
               linkedin
             </a>
@@ -231,7 +231,7 @@ export function ExperienceSection() {
               href="https://github.com/ShernanJ"
               target="_blank"
               rel="noreferrer"
-              className="underline-offset-4 hover:underline"
+              className="underline-offset-4 hover:underline cursor-pointer"
             >
               github
             </a>
@@ -239,7 +239,7 @@ export function ExperienceSection() {
               href="/resume"
               target="_blank"
               rel="noreferrer"
-              className="underline-offset-4 hover:underline"
+              className="underline-offset-4 hover:underline cursor-pointer"
             >
               resume
             </a>

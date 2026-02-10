@@ -5,7 +5,7 @@ export function SocialLinks() {
         href="https://github.com/ShernanJ"
         target="_blank"
         rel="noreferrer"
-        className="underline-offset-4 hover:underline"
+        className="underline-offset-4 hover:underline cursor-pointer"
       >
         github
       </a>
@@ -14,14 +14,14 @@ export function SocialLinks() {
         href="https://www.linkedin.com/in/shernanjavier"
         target="_blank"
         rel="noreferrer"
-        className="underline-offset-4 hover:underline"
+        className="underline-offset-4 hover:underline cursor-pointer"
       >
         linkedin
       </a>
       <span className="h-1 w-1 rounded-full bg-border" />
       <a
         href="mailto:shernanjavier@gmail.com"
-        className="underline-offset-4 hover:underline"
+        className="underline-offset-4 hover:underline cursor-pointer"
       >
         email
       </a>
