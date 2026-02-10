@@ -13,6 +13,9 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://shernanjavier.com"),
+  robots: { index: true, follow: true },
+  alternates: { canonical: "/" },
   title: "shernan javier",
   description:
     "building agent-native infra, browser tooling, and structured data systems.",
