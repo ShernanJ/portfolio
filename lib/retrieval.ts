@@ -31,6 +31,26 @@ export function chunkMarkdown(md: string): Chunk[] {
   return chunks;
 }
 
+function rewriteQuery(query: string, topic: string | null) {
+  if (!topic) return query;
+
+  const q = query.toLowerCase().trim();
+
+  // vague followups
+  if (
+    q === "what did i do for it?" ||
+    q === "what did you do?" ||
+    q === "what was your role?" ||
+    q === "tell me more" ||
+    q === "what did that involve?"
+  ) {
+    return `what did i do for ${topic}`;
+  }
+
+  return query;
+}
+
+
 function tokenize(text: string) {
   return text.toLowerCase().split(/[^a-z0-9]+/).filter(Boolean);
 }
