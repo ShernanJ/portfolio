@@ -236,7 +236,7 @@ export function ExperienceSection() {
               github
             </a>
             <a
-              href="/resume"
+              href="/shernan_javier_resume.pdf"
               target="_blank"
               rel="noreferrer"
               className="underline-offset-4 hover:underline cursor-pointer"
