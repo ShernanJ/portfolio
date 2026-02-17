@@ -44,7 +44,8 @@ export function CTASection({ onOpenChat }: CTASectionProps) {
             <div className="mb-10 flex w-full flex-col items-center gap-4 md:flex-row md:items-center md:justify-center md:gap-8">
               <div className="order-2 flex flex-col items-center text-center md:order-1 md:items-start md:text-left">
                 <a
-                  href="mailto:shernanjavier@gmail.com"
+                  href="/shernan_javier_resume.pdf"
+                  target="_blank"
                   className="mb-6 inline-flex items-center gap-2 rounded-full border border-primary/10 bg-primary/5 px-4 py-1.5 text-sm font-medium text-primary backdrop-blur-sm cursor-pointer transition-colors duration-150 hover:bg-primary/10 hover:border-primary/40"
                 >
                   <span className="relative flex h-2 w-2">
