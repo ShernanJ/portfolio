@@ -54,7 +54,7 @@ export const EXPERIENCE_ITEMS: ExperienceItem[] = [
       "campaign / bounty flows",
       "ops and admin tooling",
     ],
-    tags: ["marketplace", "full-stack", "product"],
+    tags: ["marketplace", "entrepreneurship", "product", "ugc", "b2b2c"],
   },
   {
     id: "internships",

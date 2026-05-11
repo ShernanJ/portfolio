@@ -19,13 +19,13 @@ export const PROJECT_ITEMS: ProjectItem[] = [
     name: "xpo.lol",
     image: "/data/images/xpo.png",
     impact:
-      "experimental project to explore the capabilities and limitations of language models in generating and understanding complex narratives.",
+      "experimental project to explore what stan's stanley for linkedin app would look like for x.",
     bullets: [
-      "prompt engineering and iteration for narrative generation",
-      "fine-tuning and evaluation of models on story coherence and creativity",
-      "exploration of model limitations and failure modes in storytelling",
+      "multi agent orchestration",
+      "web scraping through graphql request",
+      "guardrails",
     ],
-    tags: ["language models", "narrative generation", "prompt engineering"],
+    tags: ["agents", "web scraping", "guardrails", "orchestration"],
     href: "https://github.com/ShernanJ/xpo-app",
     linkLabel: "visit site",
   },
@@ -35,13 +35,13 @@ export const PROJECT_ITEMS: ProjectItem[] = [
     name: "stan.store creator compatibility engine",
     image: "/data/images/stan-lee.jpeg",
     impact:
-      "experimental project for stan store creators compare and find compatible brand partners.",
+      "experimental project for stan store creators to compare and find compatible brand partners.",
     bullets: [
-      "brand ingestion and dossier generation from web signals",
+      "brand ingestion and dossier generation from web scraping",
       "deterministic scoring and ranking with stored match edges",
-      "brief and outreach generation grounded in brand and creator features",
+      "web scraping service to ingest stan.store creators",
     ],
-    tags: ["matching", "pipelines", "ranking", "agents", "postgres"],
+    tags: ["matching", "pipelines", "ranking", "agents", "playwright"],
     href: "https://github.com/ShernanJ/creatorgraph",
     linkLabel: "view repo",
   },
@@ -51,7 +51,7 @@ export const PROJECT_ITEMS: ProjectItem[] = [
     name: "stanley for x browser extension",
     image: "/data/images/stanley-extension.png",
     impact:
-      "browser extension that transforms stanley linkedin posts into x native posts.",
+      "browser extension that transforms stanley linkedin posts into x native posts directly from the stanley linkedin app.",
     bullets: [
       "runtime interception of web signals and user interactions",
     ],
