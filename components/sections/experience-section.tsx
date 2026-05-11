@@ -20,18 +20,13 @@ const EXPERIENCE_ITEMS: ExperienceItem[] = [
     logoSrc: "/companies/stealth_startup_logo.jpg",
     logoAlt: "stealth startup logo",
     impact:
-      "shipped a b2b behavioral intelligence platform with a browser sdk, streaming pipelines, and inference layers for adaptive marketing systems.",
+      "shipped a behavioral intelligence platform for marketing teams.",
     bullets: [
       "browser sdk instrumentation",
       "streaming / event pipelines",
       "inference / optimization layer",
     ],
     tags: ["browser sdk", "pipelines", "inference", "b2b"],
-    more: [
-      "designed the event schema and contracts between client, stream, and inference layer",
-      "made tradeoffs around latency vs depth of analysis for in-session decisions",
-      "built internal tooling to replay traffic and validate new inference logic",
-    ],
   },
   {
     id: "clover-labs",
@@ -47,11 +42,6 @@ const EXPERIENCE_ITEMS: ExperienceItem[] = [
       "early platform infra",
     ],
     tags: ["agents", "automation", "infra"],
-    more: [
-      "defined the core agent loop: perception → planning → action → logging",
-      "built guardrails and failure modes to keep agents debuggable, not magic",
-      "set up basic observability around agent runs and downstream effects",
-    ],
   },
   {
     id: "merchme",
@@ -67,11 +57,6 @@ const EXPERIENCE_ITEMS: ExperienceItem[] = [
       "ops and admin tooling",
     ],
     tags: ["marketplace", "full-stack", "product"],
-    more: [
-      "designed data model for creators, brands, campaigns, and payouts",
-      "built internal dashboards for campaign health, creator performance, and fulfillment",
-      "iterated quickly on flows with tight feedback loops from brands and creators",
-    ],
   },
   {
     id: "internships",
@@ -87,10 +72,6 @@ const EXPERIENCE_ITEMS: ExperienceItem[] = [
       "ui sdk and experimentation interfaces",
     ],
     tags: ["prod", "automation", "ui systems"],
-    more: [
-      "worked on real user-facing systems instead of throwaway prototypes",
-      "picked up existing codebases and shipped within existing constraints",
-    ],
   },
 ];
 
@@ -101,14 +82,6 @@ export function ExperienceSection() {
         <div className="space-y-3">
           <p className="text-xs font-medium uppercase tracking-[0.18em] text-muted-foreground">
             experience
-          </p>
-          <h2 className="text-2xl md:text-3xl font-semibold tracking-tight">
-            early systems builder
-          </h2>
-          <p className="max-w-3xl text-sm md:text-base text-muted-foreground">
-            founding-engineer style work across browser tooling, pipelines,
-            agents, and marketplaces. end-to-end ownership from primitives and
-            abstractions to hardening under real traffic.
           </p>
         </div>
 

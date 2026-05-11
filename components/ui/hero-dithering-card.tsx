@@ -60,11 +60,7 @@ export function CTASection({ onOpenChat }: CTASectionProps) {
                 </h2>
 
                 <p className="text-muted-foreground text-lg md:text-xl max-w-2xl mb-0 md:mb-2 leading-relaxed">
-                  building systems that turn messy, live signals into structured
-                  knowledge.
-                  <br />
-                  infra, abstraction, and browser tools for humans + agents
-                  to reason over.
+                  trying new things, building new things, and always learning new things
                 </p>
               </div>
 
@@ -83,7 +79,7 @@ export function CTASection({ onOpenChat }: CTASectionProps) {
               onClick={onOpenChat}
               type="button"
             >
-              <span className="relative z-10">ask the system</span>
+              <span className="relative z-10">ask my chatbot</span>
               <ArrowRight className="h-5 w-5 relative z-10 transition-transform duration-300 group-hover:translate-x-1" />
             </button>
             <p className="mt-4 text-xs text-muted-foreground">
