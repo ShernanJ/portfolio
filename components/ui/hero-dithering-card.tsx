@@ -1,7 +1,7 @@
 "use client";
 
 import { ArrowRight } from "lucide-react";
-import { useState, Suspense, lazy } from "react";
+import { useState, Suspense, lazy, Component, type ReactNode } from "react";
 import { HeroAvatar } from "@/components/ui/hero-avatar";
 
 const Dithering = lazy(() =>
@@ -9,6 +9,18 @@ const Dithering = lazy(() =>
     default: mod.Dithering,
   }))
 );
+
+class WebGLErrorBoundary extends Component<{ children: ReactNode; fallback: ReactNode }> {
+  state = { hasError: false };
+
+  static getDerivedStateFromError() {
+    return { hasError: true };
+  }
+
+  render() {
+    return this.state.hasError ? this.props.fallback : this.props.children;
+  }
+}
 
 type CTASectionProps = {
   onOpenChat?: () => void;
@@ -26,18 +38,24 @@ export function CTASection({ onOpenChat }: CTASectionProps) {
       >
         <div className="relative overflow-hidden rounded-[48px] border border-border bg-card shadow-sm min-h-[600px] md:min-h-[600px] flex flex-col items-center justify-center duration-500">
           <Suspense fallback={<div className="absolute inset-0 bg-muted/20" />}>
-            <div className="absolute inset-0 z-0 pointer-events-none opacity-25 dark:opacity-20 mix-blend-multiply dark:mix-blend-screen">
-              <Dithering
-                colorBack="#0B1220"
-                colorFront="#6EA8FF"
-                shape="warp"
-                type="8x8"
-                size={2}
-                speed={isHovered ? 0.3 : 0.1}
-                className="size-full"
-                minPixelRatio={1}
-              />
-            </div>
+            <WebGLErrorBoundary
+              fallback={
+                <div className="absolute inset-0 z-0 bg-gradient-to-br from-[#0B1220] via-[#0F1A30] to-[#1A2A4A] opacity-25 dark:opacity-20" />
+              }
+            >
+              <div className="absolute inset-0 z-0 pointer-events-none opacity-25 dark:opacity-20 mix-blend-multiply dark:mix-blend-screen">
+                <Dithering
+                  colorBack="#0B1220"
+                  colorFront="#6EA8FF"
+                  shape="warp"
+                  type="8x8"
+                  size={2}
+                  speed={isHovered ? 0.3 : 0.1}
+                  className="size-full"
+                  minPixelRatio={1}
+                />
+              </div>
+            </WebGLErrorBoundary>
           </Suspense>
 
           <div className="relative z-10 px-6 max-w-4xl mx-auto text-center flex flex-col items-center">
