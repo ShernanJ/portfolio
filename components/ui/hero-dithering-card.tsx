@@ -74,7 +74,7 @@ export function CTASection() {
                 </h2>
 
                 <p className="text-muted-foreground text-lg md:text-xl max-w-2xl mb-0 md:mb-2 leading-relaxed">
-                  trying new things, building new things, and always learning new things
+                  experimenting constantly and failing fast to succeed sooner.
                 </p>
               </div>
 
