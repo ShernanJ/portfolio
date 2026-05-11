@@ -24,21 +24,7 @@ daytrace explores modeling personal life signals as structured data to produce e
 
 ## featured projects
 
-### creatorgraph — creator economy · partnership intelligence
-
-brand-side dealflow engine for stan-style ecosystems. converts a brand url into a structured dossier, generates campaign briefs, ranks creators with explainable scoring, and outputs outreach grounded in real signals.
-
-- brand ingestion and dossier generation from web signals
-- deterministic scoring and ranking with stored match edges
-- brief and outreach generation grounded in brand and creator features
-
-### ensight — wallet safety
-
-browser extension + backend that sits in the path of ethereum wallet requests and turns them into structured intent events, so users get readable explanations instead of opaque hex.
-
-- runtime interception of wallet request flows and transaction intents
-- structured intent event schema for downstream analysis and UI
-- lightweight risk heuristics and explainable breakdowns pre-signing
+{{PROJECTS}}
 
 ## experience (high level)
 - early-stage / founding engineer style work: shipping 0→1 systems across product + infra
@@ -66,56 +52,7 @@ ikigai project = a thesis-style build where you pick a problem aligned with what
 
 ## experience (detailed)
 
-### stealth startup — founding engineer
-
-shipped a behavioral intelligence platform for marketing teams.
-
-- browser sdk instrumentation
-- streaming / event pipelines
-- inference / optimization layer
-
-more:
-- designed the event schema and contracts between client, stream, and inference layer
-- made tradeoffs around latency vs depth of analysis for in-session decisions
-- built internal tooling to replay traffic and validate new inference logic
-
-### clover labs — founding engineer
-
-built ai-driven growth agents and early infrastructure for scalable distribution systems.
-
-- agent workflows and orchestration
-- automation pipelines
-- early platform infra
-
-more:
-- defined the core agent loop: perception → planning → action → logging
-- built guardrails and failure modes to keep agents debuggable, not magic
-- set up basic observability around agent runs and downstream effects
-
-### merchme — co-founder & cto
-
-led product architecture and full-stack development for a ugc marketplace connecting creators and brands; supported 100+ creators and active brand partners.
-
-- marketplace core and matching
-- campaign / bounty flows
-- ops and admin tooling
-
-more:
-- designed data model for creators, brands, campaigns, and payouts
-- built internal dashboards for campaign health, creator performance, and fulfillment
-- iterated quickly on flows with tight feedback loops from brands and creators
-
-### td · thales · taplytics (yc w14 → devcycle) — engineering internships (selected)
-
-shipped production features across enterprise and startup environments.
-
-- prod dashboards and reporting surfaces
-- internal automation tooling
-- ui sdk and experimentation interfaces
-
-more:
-- worked on real user-facing systems instead of throwaway prototypes
-- picked up existing codebases and shipped within existing constraints
+{{EXPERIENCES}}
 
 ## glossary
 - browser sdk instrumentation: client-side capture of high-signal events (ux + performance) as structured data

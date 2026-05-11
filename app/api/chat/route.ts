@@ -76,6 +76,22 @@ function buildFollowupsNatural(topic: string | null, intent: string) {
       "what’s the mvp vs long-term scope?",
       "what’s the current stack and why?",
     ],
+    creatorgraph: [
+      "how does creatorgraph turn a brand url into a dossier?",
+      "how does the deterministic scoring + ranking work?",
+      "what does the outreach generation look like?",
+      "what’s the data model for match edges?",
+      "how is this different from other creator marketplace tools?",
+      "what’s the stack and why postgres?",
+    ],
+    ensight: [
+      "how does ensight intercept ethereum wallet calls?",
+      "what does the structured intent event schema look like?",
+      "how do the risk heuristics work?",
+      "what transactions can ensight explain?",
+      "what’s the architecture (extension vs backend)?",
+      "what’s the hardest part about runtime interception?",
+    ],
   };
 
   const topicList = topic ? (byTopic[topic] ?? []) : [];
@@ -176,6 +192,8 @@ function inferTopic(messages: CleanMsg[], sources: string[]) {
   if (text.includes("stealth")) return "stealth";
   if (text.includes("clover")) return "clover";
   if (text.includes("merchme")) return "merchme";
+  if (text.includes("creatorgraph")) return "creatorgraph";
+  if (text.includes("ensight")) return "ensight";
 
   return null;
 }
