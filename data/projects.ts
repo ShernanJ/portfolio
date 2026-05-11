@@ -9,15 +9,33 @@ export type ProjectItem = {
   href?: string;
   linkLabel?: string;
   fullWidth?: boolean;
+  image?: string;
 };
 
 export const PROJECT_ITEMS: ProjectItem[] = [
   {
-    id: "creatorgraph",
-    category: "creator economy · partnership intelligence",
-    name: "creatorgraph",
+    id: "xpo.lol",
+    category: "experimental · ai",
+    name: "xpo.lol",
+    image: "/data/images/xpo.png",
     impact:
-      "brand-side dealflow engine for stan-style ecosystems. converts a brand url into a structured dossier, generates campaign briefs, ranks creators with explainable scoring, and outputs outreach grounded in real signals.",
+      "experimental project to explore the capabilities and limitations of language models in generating and understanding complex narratives.",
+    bullets: [
+      "prompt engineering and iteration for narrative generation",
+      "fine-tuning and evaluation of models on story coherence and creativity",
+      "exploration of model limitations and failure modes in storytelling",
+    ],
+    tags: ["language models", "narrative generation", "prompt engineering"],
+    href: "https://github.com/ShernanJ/xpo-app",
+    linkLabel: "visit site",
+  },
+  {
+    id: "creator-compatibility-engine",
+    category: "creator economy · partnership intelligence",
+    name: "stan.store creator compatibility engine",
+    image: "/data/images/stan-lee.jpeg",
+    impact:
+      "experimental project for stan store creators compare and find compatible brand partners.",
     bullets: [
       "brand ingestion and dossier generation from web signals",
       "deterministic scoring and ranking with stored match edges",
@@ -28,11 +46,25 @@ export const PROJECT_ITEMS: ProjectItem[] = [
     linkLabel: "view repo",
   },
   {
+    id: "stanley-for-x-extension",
+    category: "experimental · ai",
+    name: "stanley for x browser extension",
+    image: "/data/images/stanley-extension.png",
+    impact:
+      "browser extension that transforms stanley linkedin posts into x native posts.",
+    bullets: [
+      "runtime interception of web signals and user interactions",
+    ],
+    tags: ["browser runtime", "interception", "event schemas", "agents"],
+    href: "https://github.com/ShernanJ/stanley-x-extension",
+  },
+  {
     id: "ensight",
     category: "wallet safety",
-    name: "ensight",
+    name: "ensight browser extension",
+    image: "/data/images/diagram-extension-flow.png",
     impact:
-      "browser extension + backend that sits in the path of ethereum wallet requests and turns them into structured intent events, so users get readable explanations instead of opaque hex.",
+      "browser extension that helps users understand and mitigate risks in their web3 transactions.",
     bullets: [
       "runtime interception of wallet request flows and transaction intents",
       "structured intent event schema for downstream analysis and UI",

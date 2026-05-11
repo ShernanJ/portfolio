@@ -1,22 +1,15 @@
-"use client";
-
-import { useState } from "react";
-
 import { ProjectsSection } from "@/components/sections/projects-section";
 import { ExperienceSection } from "@/components/sections/experience-section";
 import { LearningsSection } from "@/components/sections/learnings-section";
 import { WritingSection } from "@/components/sections/writing-section";
 import { CTASection } from "@/components/ui/hero-dithering-card";
-import { ChatShell } from "@/components/ui/chat-shell";
 import { SocialLinks } from "@/components/ui/social-links";
 
 export default function Home() {
-  const [isChatOpen, setIsChatOpen] = useState(false);
-
   return (
     <main className="min-h-screen bg-background text-foreground flex">
       <div className="flex-1 flex flex-col">
-        <CTASection onOpenChat={() => setIsChatOpen(true)} />
+        <CTASection />
         <ProjectsSection />
         <ExperienceSection />
         <LearningsSection />
@@ -30,7 +23,6 @@ export default function Home() {
           </div>
         </footer>
       </div>
-      <ChatShell open={isChatOpen} onClose={() => setIsChatOpen(false)} />
     </main>
   );
 }

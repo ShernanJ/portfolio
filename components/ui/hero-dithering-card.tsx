@@ -22,11 +22,7 @@ class WebGLErrorBoundary extends Component<{ children: ReactNode; fallback: Reac
   }
 }
 
-type CTASectionProps = {
-  onOpenChat?: () => void;
-};
-
-export function CTASection({ onOpenChat }: CTASectionProps) {
+export function CTASection() {
   const [isHovered, setIsHovered] = useState(false);
 
   return (
@@ -92,21 +88,21 @@ export function CTASection({ onOpenChat }: CTASectionProps) {
               </div>
             </div>
 
-            <button
-              className="group relative inline-flex h-14 items-center justify-center gap-3 overflow-hidden rounded-full bg-primary px-12 text-base font-medium text-primary-foreground transition-all duration-300 hover:bg-primary/90 hover:scale-105 active:scale-95 hover:ring-4 hover:ring-primary/20 cursor-pointer"
-              onClick={onOpenChat}
-              type="button"
+            <a
+              href="mailto:shernanjavier@gmail.com"
+              className="group relative inline-flex h-14 items-center justify-center gap-3 overflow-hidden rounded-full bg-primary px-12 text-base font-medium text-primary-foreground transition-all duration-300 hover:bg-primary/90 hover:scale-105 active:scale-95 hover:ring-4 hover:ring-primary/20"
             >
-              <span className="relative z-10">ask my chatbot</span>
+              <span className="relative z-10">chat with me</span>
               <ArrowRight className="h-5 w-5 relative z-10 transition-transform duration-300 group-hover:translate-x-1" />
-            </button>
+            </a>
             <p className="mt-4 text-xs text-muted-foreground">
               or{" "}
               <a
-                href="mailto:shernanjavier@gmail.com"
+                href="/shernan_javier_resume.pdf"
+                target="_blank"
                 className="underline-offset-4 hover:underline cursor-pointer"
               >
-                contact me directly
+                view my resume
               </a>
             </p>
           </div>

@@ -24,17 +24,31 @@ daytrace explores modeling personal life signals as structured data to produce e
 
 ## featured projects
 
-### creatorgraph — creator economy · partnership intelligence
+### xpo.lol — experimental · ai
 
-brand-side dealflow engine for stan-style ecosystems. converts a brand url into a structured dossier, generates campaign briefs, ranks creators with explainable scoring, and outputs outreach grounded in real signals.
+experimental project to explore the capabilities and limitations of language models in generating and understanding complex narratives.
+
+- prompt engineering and iteration for narrative generation
+- fine-tuning and evaluation of models on story coherence and creativity
+- exploration of model limitations and failure modes in storytelling
+
+### stan.store creator compatibility engine — creator economy · partnership intelligence
+
+experimental project for stan store creators compare and find compatible brand partners.
 
 - brand ingestion and dossier generation from web signals
 - deterministic scoring and ranking with stored match edges
 - brief and outreach generation grounded in brand and creator features
 
-### ensight — wallet safety
+### stanley for x browser extension — experimental · ai
 
-browser extension + backend that sits in the path of ethereum wallet requests and turns them into structured intent events, so users get readable explanations instead of opaque hex.
+browser extension that transforms stanley linkedin posts into x native posts.
+
+- runtime interception of web signals and user interactions
+
+### ensight browser extension — wallet safety
+
+browser extension that helps users understand and mitigate risks in their web3 transactions.
 
 - runtime interception of wallet request flows and transaction intents
 - structured intent event schema for downstream analysis and UI
@@ -74,11 +88,6 @@ shipped a behavioral intelligence platform for marketing teams.
 - streaming / event pipelines
 - inference / optimization layer
 
-more:
-- designed the event schema and contracts between client, stream, and inference layer
-- made tradeoffs around latency vs depth of analysis for in-session decisions
-- built internal tooling to replay traffic and validate new inference logic
-
 ### clover labs — founding engineer
 
 built ai-driven growth agents and early infrastructure for scalable distribution systems.
@@ -86,11 +95,6 @@ built ai-driven growth agents and early infrastructure for scalable distribution
 - agent workflows and orchestration
 - automation pipelines
 - early platform infra
-
-more:
-- defined the core agent loop: perception → planning → action → logging
-- built guardrails and failure modes to keep agents debuggable, not magic
-- set up basic observability around agent runs and downstream effects
 
 ### merchme — co-founder & cto
 
@@ -100,11 +104,6 @@ led product architecture and full-stack development for a ugc marketplace connec
 - campaign / bounty flows
 - ops and admin tooling
 
-more:
-- designed data model for creators, brands, campaigns, and payouts
-- built internal dashboards for campaign health, creator performance, and fulfillment
-- iterated quickly on flows with tight feedback loops from brands and creators
-
 ### td · thales · taplytics (yc w14 → devcycle) — engineering internships (selected)
 
 shipped production features across enterprise and startup environments.
@@ -112,10 +111,6 @@ shipped production features across enterprise and startup environments.
 - prod dashboards and reporting surfaces
 - internal automation tooling
 - ui sdk and experimentation interfaces
-
-more:
-- worked on real user-facing systems instead of throwaway prototypes
-- picked up existing codebases and shipped within existing constraints
 
 ## glossary
 - browser sdk instrumentation: client-side capture of high-signal events (ux + performance) as structured data
