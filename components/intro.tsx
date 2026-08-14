@@ -3,11 +3,14 @@ import { SocialLinks } from "@/components/social-links";
 
 export function Intro() {
   return (
-    <header className="intro section-reveal">
-      <div className="intro-copy">
+    <header className="intro section-reveal" id="intro">
+      <div className="intro-topline">
         <p className="eyebrow">
           {site.role} / {site.location}
         </p>
+        <SocialLinks className="intro-links" links={site.links} />
+      </div>
+      <div className="intro-copy">
         <h1>
           <span>
             I&apos;m <strong>{site.name}</strong>.
@@ -15,7 +18,6 @@ export function Intro() {
           <span>{site.description}</span>
         </h1>
       </div>
-      <SocialLinks className="intro-links" links={site.links} />
     </header>
   );
 }

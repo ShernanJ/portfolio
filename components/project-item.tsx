@@ -7,17 +7,31 @@ type ProjectItemProps = {
 };
 
 export function ProjectItem({ project, index }: ProjectItemProps) {
+  const visualAspect =
+    index % 4 === 0 || index % 4 === 3 ? "1.45 / 1" : "1.76 / 1";
+  const itemStyle = {
+    "--delay": `${index * 45}ms`,
+    "--project-order": `${index}`,
+    "--visual-aspect": visualAspect,
+  } as React.CSSProperties;
   const content = (
     <>
       <ProjectVisual project={project} />
       <div className="project-meta">
-        <div>
-          <h3>{project.name}</h3>
+        <div className="project-caption">
+          <h3>
+            {project.name}
+            {project.titleNote ? (
+              <span className="project-title-note"> {project.titleNote}</span>
+            ) : null}
+          </h3>
+          <span aria-hidden="true" className="project-caption-separator">
+            -
+          </span>
           <p>{project.shortDescription}</p>
         </div>
         <div className="project-action">
           <time dateTime={project.year}>{project.year}</time>
-          {project.link ? <span>{project.link.label} -&gt;</span> : null}
         </div>
       </div>
     </>
@@ -29,7 +43,7 @@ export function ProjectItem({ project, index }: ProjectItemProps) {
         className="project-item section-reveal"
         href={project.link.href}
         rel={project.link.external ? "noreferrer" : undefined}
-        style={{ "--delay": `${index * 45}ms` } as React.CSSProperties}
+        style={itemStyle}
         target={project.link.external ? "_blank" : undefined}
       >
         {content}
@@ -40,7 +54,7 @@ export function ProjectItem({ project, index }: ProjectItemProps) {
   return (
     <article
       className="project-item section-reveal"
-      style={{ "--delay": `${index * 45}ms` } as React.CSSProperties}
+      style={itemStyle}
     >
       {content}
     </article>

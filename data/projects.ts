@@ -48,6 +48,7 @@ export type CaseStudy = {
 export type Project = {
   slug: string;
   name: string;
+  titleNote?: string;
   year: string;
   shortDescription: string;
   image?: string;
@@ -64,6 +65,40 @@ export type Project = {
   visual: ProjectVisual;
 };
 
+function placeholderStudy(project: {
+  name: string;
+  role: string;
+  focus: string;
+  summary: string;
+  overview: string;
+  work: string;
+}): CaseStudy {
+  return {
+    title: project.summary,
+    summary:
+      "This is a first-pass case study shell. The goal is to explain the project clearly once the full product story, visuals, and outcomes are ready.",
+    meta: [
+      { label: "Role", value: project.role },
+      { label: "Focus", value: project.focus },
+      { label: "Status", value: "Draft" },
+    ],
+    sections: [
+      {
+        id: "overview",
+        label: "Overview",
+        title: project.name,
+        body: project.overview,
+      },
+      {
+        id: "work",
+        label: "What I worked on",
+        title: "The useful parts",
+        body: project.work,
+      },
+    ],
+  };
+}
+
 export const projects: Project[] = [
   {
     slug: "merchme",
@@ -78,124 +113,28 @@ export const projects: Project[] = [
     },
     featured: true,
     technologies: ["Next.js", "Commerce", "Creator tooling"],
-    caseStudy: {
-      title: "Creator commerce that feels native to the internet",
-      summary:
-        "MerchMe is a creator commerce and monetization platform. This page is a first-pass case study shell so the project can be explained clearly once the product story and artifacts are ready.",
-      meta: [
-        { label: "Role", value: "Founding engineer" },
-        { label: "Focus", value: "Commerce, creator tooling" },
-        { label: "Status", value: "In progress" },
-      ],
-      sections: [
-        {
-          id: "overview",
-          label: "Overview",
-          title: "A commerce surface for creators",
-          body: "The goal is to make monetization feel less like a bolt-on storefront and more like part of the creator's existing relationship with their audience.",
-        },
-        {
-          id: "work",
-          label: "What I worked on",
-          title: "The product foundation",
-          body: "This case study will cover the core flows, technical decisions, and the parts of the system that made adding new creator commerce primitives easier.",
-        },
-      ],
-    },
+    caseStudy: placeholderStudy({
+      name: "MerchMe",
+      role: "Founding engineer",
+      focus: "Commerce, creator tooling",
+      summary: "Creator commerce that feels native to the internet",
+      overview:
+        "MerchMe is a creator commerce and monetization platform for turning audience attention into durable revenue.",
+      work:
+        "This case study will cover the core flows, technical decisions, and the parts of the system that make adding new creator commerce primitives easier.",
+    }),
     visual: {
       background: "#f4f4f4",
     },
   },
   {
-    slug: "echos",
-    name: "Echos",
+    slug: "xpo",
+    name: "Xpo",
     year: "2026",
-    shortDescription: "Attribution and referral infrastructure for consumer apps.",
-    role: "Product engineer",
-    link: {
-      href: "/work/echos",
-      type: "case-study",
-      label: "Read case study",
-    },
-    featured: true,
-    technologies: ["Attribution", "Referrals", "Infrastructure"],
-    caseStudy: {
-      title: "Referral infrastructure for consumer growth",
-      summary:
-        "Echos is attribution and referral infrastructure for consumer apps. The case study will explain the system in plain language: what gets tracked, why it matters, and how the product makes growth loops easier to operate.",
-      meta: [
-        { label: "Role", value: "Product engineer" },
-        { label: "Focus", value: "Attribution, referrals" },
-        { label: "Stack", value: "Infrastructure + product UX" },
-      ],
-      sections: [
-        {
-          id: "overview",
-          label: "Overview",
-          title: "Making referrals understandable",
-          body: "The product sits between user actions, attribution events, and reward logic. The hard part is making that invisible infrastructure legible to teams operating consumer growth.",
-        },
-        {
-          id: "system",
-          label: "System",
-          title: "Events, identities, and rewards",
-          body: "This section will eventually break down how the system models users, tracks referral paths, and helps teams debug the difference between a real conversion and noisy attribution.",
-        },
-      ],
-    },
-    visual: {
-      background: "#f1f1f1",
-    },
-  },
-  {
-    slug: "pillowtalk",
-    name: "PillowTalk",
-    year: "2025",
-    shortDescription: "iOS sleep tracking product.",
-    role: "iOS engineer",
-    link: {
-      href: "/work/pillowtalk",
-      type: "case-study",
-      label: "Read case study",
-    },
-    featured: true,
-    technologies: ["iOS", "Health", "Consumer product"],
-    caseStudy: {
-      title: "Sleep tracking that stays out of the way",
-      summary:
-        "PillowTalk is an iOS sleep tracking product. This case study shell is structured to explain the user problem, the product interaction, and what made the app feel calm instead of clinical.",
-      meta: [
-        { label: "Role", value: "iOS engineer" },
-        { label: "Focus", value: "Consumer health" },
-        { label: "Platform", value: "iOS" },
-      ],
-      sections: [
-        {
-          id: "overview",
-          label: "Overview",
-          title: "A quieter sleep product",
-          body: "Sleep products can easily become noisy dashboards. The opportunity here is to make tracking feel simple, personal, and useful without overwhelming the user.",
-        },
-        {
-          id: "interaction",
-          label: "Interaction",
-          title: "Designing for low-energy moments",
-          body: "This section will cover the interaction decisions that matter when people are tired, waking up, or quickly checking patterns before moving on with their day.",
-        },
-      ],
-    },
-    visual: {
-      background: "#f1f1f1",
-    },
-  },
-  {
-    slug: "mini-foundry",
-    name: "Mini Foundry",
-    year: "2025",
-    shortDescription: "Experimental data intelligence and OSINT platform.",
+    shortDescription: "Turning LinkedIn-style drafts into native X posts.",
     role: "Builder",
     link: {
-      href: "/work/mini-foundry",
+      href: "/work/xpo",
       type: "case-study",
       label: "Read case study",
     },
@@ -205,22 +144,22 @@ export const projects: Project[] = [
       alt: "Stanley extension interface for drafting native social posts.",
     },
     featured: true,
-    technologies: ["Data systems", "OSINT", "Automation"],
+    technologies: ["Browser extension", "Content tooling", "Automation"],
     caseStudy: {
-      title: "A small lab for data intelligence systems",
+      title: "A content tool for rewriting posts where people actually publish",
       summary:
-        "Mini Foundry is an experimental data intelligence and OSINT platform. The case study explains the project as a set of experiments around collection, enrichment, and usable investigation workflows.",
+        "Xpo turns LinkedIn-style source material into native X posts, with a browser extension, growth surface, and supporting system flow.",
       meta: [
         { label: "Role", value: "Builder" },
-        { label: "Focus", value: "OSINT, automation" },
-        { label: "Format", value: "Experimental platform" },
+        { label: "Focus", value: "Content tooling" },
+        { label: "Format", value: "Extension + app" },
       ],
       sections: [
         {
           id: "overview",
           label: "Overview",
-          title: "Turning messy signals into useful context",
-          body: "The project explores how scattered public signals can be collected, enriched, and presented in a way that helps someone understand an entity or situation faster.",
+          title: "Making cross-platform writing feel native",
+          body: "The project started from a simple observation: content that works on LinkedIn often reads wrong on X. The tool helps preserve the idea while changing the shape, tone, and formatting for the destination.",
           media: {
             type: "image",
             src: "/data/images/stanley-extension.png",
@@ -228,10 +167,21 @@ export const projects: Project[] = [
           },
         },
         {
-          id: "system",
-          label: "System",
-          title: "Collection, enrichment, and review",
-          body: "This section will eventually show the system map: where data comes from, how it is normalized, and how the interface keeps the human in control of interpretation.",
+          id: "xpo",
+          label: "Xpo",
+          title: "A growth surface for X",
+          body: "Xpo explores the surrounding workflow: understanding what someone posts, where the account is going, and what the next useful move could be.",
+          media: {
+            type: "image",
+            src: "/data/images/xpo.png",
+            alt: "Xpo landing screen for an X growth engine.",
+          },
+        },
+        {
+          id: "extension",
+          label: "Extension",
+          title: "Browser context as the interface",
+          body: "The extension keeps the workflow close to where the user already writes, instead of forcing them into yet another dashboard.",
           media: {
             type: "image",
             src: "/data/images/diagram-extension-flow.png",
@@ -243,6 +193,232 @@ export const projects: Project[] = [
     visual: {
       background: "#ececf1",
       fit: "contain",
+    },
+  },
+  {
+    slug: "creatorgraph",
+    name: "CreatorGraph",
+    year: "2026",
+    shortDescription: "Google dorking and discovery tools for creator research.",
+    role: "Builder",
+    link: {
+      href: "/work/creatorgraph",
+      type: "case-study",
+      label: "Read case study",
+    },
+    media: {
+      type: "image",
+      src: "/data/images/stan-lee.jpeg",
+      alt: "CreatorGraph brand website generator screen.",
+    },
+    featured: true,
+    technologies: ["Search", "OSINT", "Data enrichment"],
+    caseStudy: placeholderStudy({
+      name: "CreatorGraph",
+      role: "Builder",
+      focus: "Search, OSINT",
+      summary: "Creator research from messy public signals",
+      overview:
+        "CreatorGraph experiments with using search operators, enrichment, and structured review to discover useful creator and brand context.",
+      work:
+        "This case study will explain the discovery workflow, the data model, and how the interface keeps research understandable instead of dumping raw links.",
+    }),
+    visual: {
+      background: "#f2f2f4",
+      fit: "cover",
+    },
+  },
+  {
+    slug: "ensight",
+    name: "ENSight",
+    year: "2025",
+    shortDescription: "First Web3 app and browser-extension security experiment.",
+    role: "Builder",
+    link: {
+      href: "/work/ensight",
+      type: "case-study",
+      label: "Read case study",
+    },
+    featured: true,
+    technologies: ["Web3", "Browser extension", "Security"],
+    caseStudy: placeholderStudy({
+      name: "ENSight",
+      role: "Builder",
+      focus: "Web3, extension security",
+      summary: "A first Web3 app for understanding transaction intent",
+      overview:
+        "ENSight explored how to make wallet and dapp interactions more understandable before a user signs something important.",
+      work:
+        "The case study will break down the extension architecture, the risk/intent model, and what I learned building in the browser security boundary.",
+    }),
+    visual: {
+      background: "#f3f3f3",
+    },
+  },
+  {
+    slug: "wya",
+    name: "WYA App",
+    year: "2025",
+    shortDescription: "Bluetooth connectivity app for ravers finding each other.",
+    role: "Builder",
+    link: {
+      href: "/work/wya",
+      type: "case-study",
+      label: "Read case study",
+    },
+    featured: true,
+    technologies: ["Mobile", "Bluetooth", "Events"],
+    caseStudy: placeholderStudy({
+      name: "WYA App",
+      role: "Builder",
+      focus: "Mobile, Bluetooth",
+      summary: "Finding your friends when signal gets weird",
+      overview:
+        "WYA is a Bluetooth connectivity app idea for ravers trying to find each other when crowds, noise, and weak service make coordination painful.",
+      work:
+        "This case study will cover the product idea, the connectivity constraints, and how the app could stay useful in a chaotic live-event environment.",
+    }),
+    visual: {
+      background: "#f5f5f5",
+    },
+  },
+  {
+    slug: "behavioural-intelligence",
+    name: "Behavioural Intelligence",
+    year: "2025",
+    shortDescription: "OSINT experiments for finding and organizing signals.",
+    role: "Builder",
+    link: {
+      href: "/work/behavioural-intelligence",
+      type: "case-study",
+      label: "Read case study",
+    },
+    featured: true,
+    technologies: ["OSINT", "Automation", "Data systems"],
+    caseStudy: placeholderStudy({
+      name: "Behavioural Intelligence",
+      role: "Builder",
+      focus: "OSINT, automation",
+      summary: "OSINT workflows for turning clues into context",
+      overview:
+        "Behavioural Intelligence is an OSINT-oriented experiment around gathering public signals, connecting them, and making the result easier to reason about.",
+      work:
+        "The case study will focus on collection, enrichment, entity review, and where automation helps versus where human judgment still matters.",
+    }),
+    visual: {
+      background: "#eeeeee",
+    },
+  },
+  {
+    slug: "ai-phone-agent",
+    name: "AI Phone Agent",
+    year: "2025",
+    shortDescription: "Voice agent experiments for phone-based workflows.",
+    role: "Builder",
+    link: {
+      href: "/work/ai-phone-agent",
+      type: "case-study",
+      label: "Read case study",
+    },
+    featured: true,
+    technologies: ["Voice AI", "Agents", "Automation"],
+    caseStudy: placeholderStudy({
+      name: "AI Phone Agent",
+      role: "Builder",
+      focus: "Voice AI, agents",
+      summary: "Phone workflows handled by an AI agent",
+      overview:
+        "The AI Phone Agent explores what it takes to make a voice agent useful in real phone workflows, where timing, context, and reliability matter.",
+      work:
+        "This case study will cover the interaction model, agent constraints, and the tradeoffs between automation and human handoff.",
+    }),
+    visual: {
+      background: "#f3f3f3",
+    },
+  },
+  {
+    slug: "td-react-library",
+    name: "TD Innersource Library",
+    year: "2023",
+    shortDescription: "Reusable frontend library work for internal product teams.",
+    role: "Frontend engineer",
+    link: {
+      href: "/work/td-react-library",
+      type: "case-study",
+      label: "Read case study",
+    },
+    company: "TD",
+    featured: false,
+    technologies: ["React", "Design systems", "Frontend"],
+    caseStudy: placeholderStudy({
+      name: "TD Innersource Library",
+      role: "Frontend engineer",
+      focus: "React, reusable UI",
+      summary: "Reusable React patterns for internal product surfaces",
+      overview:
+        "This work focused on reusable frontend pieces that could make internal product development more consistent.",
+      work:
+        "The case study will cover component constraints, usage patterns, and what reusable UI needs in a large organization.",
+    }),
+    visual: {
+      background: "#f4f4f4",
+    },
+  },
+  {
+    slug: "taplytics-marketing-refresh",
+    name: "Taplytics",
+    titleNote: "(Rebranded to DevCycle)",
+    year: "2024",
+    shortDescription: "Marketing page refresh and frontend polish.",
+    role: "Software engineer",
+    link: {
+      href: "/work/taplytics-marketing-refresh",
+      type: "case-study",
+      label: "Read case study",
+    },
+    company: "Taplytics",
+    featured: false,
+    technologies: ["Frontend", "Marketing site", "Polish"],
+    caseStudy: placeholderStudy({
+      name: "Taplytics",
+      role: "Software engineer",
+      focus: "Frontend, marketing",
+      summary: "Refreshing a marketing surface without overcomplicating it",
+      overview:
+        "This project focused on improving a marketing page surface and making the presentation clearer.",
+      work:
+        "The case study will cover the page goals, frontend details, and what changed visually.",
+    }),
+    visual: {
+      background: "#f1f1f1",
+    },
+  },
+  {
+    slug: "clover-labs",
+    name: "Clover Labs",
+    year: "2025",
+    shortDescription: "Consumer apps including TryEchos, PillowTalk, and more.",
+    role: "Software engineer",
+    link: {
+      href: "/work/clover-labs",
+      type: "case-study",
+      label: "Read case study",
+    },
+    company: "Clover Labs",
+    featured: false,
+    technologies: ["Consumer apps", "Growth", "Mobile"],
+    caseStudy: placeholderStudy({
+      name: "Clover Labs",
+      role: "Software engineer",
+      focus: "Consumer apps",
+      summary: "Building and iterating across early consumer products",
+      overview:
+        "Clover Labs work spanned multiple consumer products and experiments, including TryEchos, PillowTalk, and other apps.",
+      work:
+        "This case study will group the most relevant product and engineering work from that period into one easy-to-understand story.",
+    }),
+    visual: {
+      background: "#f2f2f2",
     },
   },
 ];
