@@ -1,0 +1,93 @@
+export const caseStudy = {
+  title: "Behavioural Intelligence: A browser SDK for marketing signals",
+  summary:
+    "At a stealth startup, I worked on a proof of concept for collecting real-time website behaviour and turning it into campaign-ready customer signals. The work covered the browser SDK, event pipeline, profile building, and inference layer.",
+  meta: [
+    { label: "Role", value: "Founding Engineer" },
+    { label: "Focus", value: "Browser SDK, behavioural analytics" },
+    { label: "Proof", value: "Real-time signal capture prototype" },
+    { label: "Domain", value: "Marketing intelligence" },
+    { label: "Year", value: "2026" },
+  ],
+  snapshot: [
+    {
+      label: "Built",
+      value:
+        "A browser SDK and event pipeline for capturing site activity, shaping behavioural profiles, and recommending campaign actions.",
+    },
+    {
+      label: "Signals",
+      value:
+        "Page views, clicks, searches, forms, product interest, session flow, and permitted identity signals like email.",
+    },
+    {
+      label: "Tension",
+      value:
+        "The useful product had to balance sharper personalization with consent, privacy, and explainability.",
+    },
+  ],
+  sections: [
+    { id: "context", label: "Context" },
+    { id: "sdk", label: "SDK" },
+    { id: "pipeline", label: "Pipeline" },
+    { id: "lesson", label: "Lesson" },
+  ],
+};
+
+<CaseSection id="context" label="Context" title="The product looked for intent while users were still browsing">
+The startup was exploring a marketing intelligence product: instead of only reading analytics after the fact, could a client understand what a visitor seemed interested in while they were still on the site?
+
+My work touched the browser SDK, event ingestion, profile construction, and the inference layer that turned behaviour into campaign suggestions.
+</CaseSection>
+
+<CaseSection id="sdk" label="SDK" title="The SDK collected high-signal interactions">
+The SDK was embedded on client sites. It captured behaviour that could help explain intent without requiring the client to rebuild their product.
+
+<div className="case-feature-grid">
+  <div>
+    <h3>Session signals</h3>
+    <p>Visits, page views, referrers, and the path a visitor took through the site.</p>
+  </div>
+  <div>
+    <h3>Interaction signals</h3>
+    <p>Clicks, searches, form engagement, product views, content views, and repeated category interest.</p>
+  </div>
+  <div>
+    <h3>Identity signals</h3>
+    <p>When permitted, an email or known identifier could connect anonymous activity to a durable profile.</p>
+  </div>
+  <div>
+    <h3>Client analytics</h3>
+    <p>The goal was not more counters. It was cleaner context for marketing decisions.</p>
+  </div>
+</div>
+</CaseSection>
+
+<CaseSection id="pipeline" label="Pipeline" title="Raw events became behavioural profiles">
+The backend normalized raw events, stitched sessions, updated profile traits, and produced campaign recommendations. The interesting work was the middle layer: turning noisy actions into signals a marketing team could actually use.
+
+<div className="case-flow" aria-label="Behavioural Intelligence signal pipeline">
+  <div>SDK captures activity</div>
+  <span>to</span>
+  <div>Events stream in</div>
+  <span>to</span>
+  <div>Pipeline normalizes behaviour</div>
+  <span>to</span>
+  <div>Profiles update</div>
+  <span>to</span>
+  <div>Campaigns adapt</div>
+</div>
+
+<ul className="case-list">
+  <li>Tracked first-party behaviour directly from the client site.</li>
+  <li>Grouped repeated actions into profile-level interests and traits.</li>
+  <li>Used permitted identifiers to connect sessions when available.</li>
+  <li>Explored enrichment and inference for campaign recommendations.</li>
+</ul>
+</CaseSection>
+
+<CaseSection id="lesson" label="Lesson" title="Better targeting needs a clear signal chain">
+The technical problem went past event capture. We had to decide which signals were worth collecting, how long they should matter, and how to explain why a recommendation was made.
+
+This project made me more careful about data products. Inferred traits should not be treated like facts, and useful personalization still needs consent, source context, and a way for humans to inspect the output.
+</CaseSection>

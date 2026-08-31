@@ -1,0 +1,65 @@
+export const caseStudy = {
+  title: "TD Bank: SDK for internal teams",
+  summary:
+    "At TD, I worked on an internal SDK used by product teams. The work sat between frontend implementation and the TD Design System: reusable components, predictable states, accessibility, and designer review.",
+  meta: [
+    { label: "Role", value: "Software Engineer Intern" },
+    { label: "Focus", value: "Reusable components" },
+    { label: "Team", value: "TD Design System collaboration" },
+    { label: "Stack", value: "React, TypeScript" },
+    { label: "Year", value: "2023" },
+  ],
+  snapshot: [
+    {
+      label: "Work",
+      value:
+        "Built and refined reusable React components for internal product teams.",
+    },
+    {
+      label: "Collaboration",
+      value:
+        "Worked with designers to translate design-system guidance into component APIs and states.",
+    },
+    {
+      label: "Lesson",
+      value:
+        "Reusable UI needs good defaults, clear states, and enough flexibility for real product screens.",
+    },
+  ],
+  sections: [
+    { id: "context", label: "Context" },
+    { id: "work", label: "Work" },
+    { id: "lesson", label: "Lesson" },
+  ],
+};
+
+<CaseSection id="context" label="Context" title="A shared library for TD product teams">
+The TD Innersource Library helped internal teams ship common UI patterns without rebuilding them from scratch. My role was frontend implementation, working alongside designers connected to the TD Design System.
+</CaseSection>
+
+<CaseSection id="work" label="Work" title="I helped turn design guidance into reusable components">
+<div className="case-feature-grid">
+  <div>
+    <h3>Components</h3>
+    <p>Built and refined React components intended for repeated use across teams.</p>
+  </div>
+  <div>
+    <h3>States</h3>
+    <p>Covered default, hover, focus, disabled, loading, validation, and error behaviour.</p>
+  </div>
+  <div>
+    <h3>Accessibility</h3>
+    <p>Kept keyboard behaviour and accessible defaults inside the component contract.</p>
+  </div>
+  <div>
+    <h3>Design review</h3>
+    <p>Worked through edge cases with designers: long content, missing values, and product-specific usage.</p>
+  </div>
+</div>
+</CaseSection>
+
+<CaseSection id="lesson" label="Lesson" title="Component libraries are product infrastructure">
+The useful part of a component library is not the component folder. It is the set of decisions the library saves other teams from remaking: spacing, states, accessibility, interaction behaviour, and visual consistency.
+
+This work gave me an early appreciation for frontend systems that have to survive outside the ideal mockup.
+</CaseSection>
