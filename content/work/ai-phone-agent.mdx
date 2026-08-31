@@ -1,0 +1,97 @@
+export const caseStudy = {
+  title: "AI Phone Agent: An early voice-AI prototype",
+  summary:
+    "In 2024, I built a basic customer-service phone agent with Twilio Voice, Go, Gin, and Cohere. It answered a call, collected speech, sent the transcript to a model, and read the response back to the caller.",
+  meta: [
+    { label: "Focus", value: "Voice AI proof of concept" },
+    { label: "Stack", value: "Go, Gin, Twilio Voice, Cohere" },
+    { label: "Status", value: "Learning prototype" },
+    { label: "Year", value: "2024" },
+  ],
+  links: [
+    {
+      label: "GitHub Repo",
+      href: "https://github.com/ShernanJ/ai-phone-agent",
+      type: "github",
+    },
+  ],
+  snapshot: [
+    {
+      label: "Built",
+      value:
+        "A phone-to-model loop: Twilio answered the call, gathered speech, a Go webhook called Cohere, and Twilio spoke the reply.",
+    },
+    {
+      label: "Limit",
+      value:
+        "It worked as a demo, but it had no retrieval, durable memory, streaming, tools, or handoff path.",
+    },
+    {
+      label: "Lesson",
+      value:
+        "Voice agents are mostly about latency, state, recovery, and clear boundaries. The model call is only one piece.",
+    },
+  ],
+  sections: [
+    { id: "prototype", label: "Prototype" },
+    { id: "build", label: "Build" },
+    { id: "limits", label: "Limits" },
+    { id: "next", label: "Next" },
+  ],
+};
+
+<CaseSection id="prototype" label="Prototype" title="I built the simplest useful phone loop">
+The goal was basic: can a real phone call trigger an AI answer, and can that answer be spoken back to the caller?
+
+The app used Twilio Voice for the call, a Go server with Gin for webhooks, and Cohere for the generated response. A caller asked a question, Twilio sent the transcript to my server, the server called the model, and Twilio read the answer back.
+</CaseSection>
+
+<CaseSection id="build" label="Build" title="The system was small on purpose">
+<div className="case-flow" aria-label="AI Phone Agent prototype flow">
+  <div>Caller phones Twilio number</div>
+  <span>to</span>
+  <div>Go webhook returns TwiML</div>
+  <span>to</span>
+  <div>Twilio gathers speech</div>
+  <span>to</span>
+  <div>Cohere generates answer</div>
+  <span>to</span>
+  <div>Twilio reads response</div>
+</div>
+
+<ul className="case-list">
+  <li>`/answer` handled the incoming call and returned the opening TwiML.</li>
+  <li>`/handle-user-input` handled speech turns and generated the next response.</li>
+  <li>The prompt used a seed company message from the environment.</li>
+  <li>The loop ended each answer by asking if the caller had another question.</li>
+</ul>
+</CaseSection>
+
+<CaseSection id="limits" label="Limits" title="It was a demo, not a support agent">
+The prototype treated each turn like a standalone prompt. That meant no durable conversation memory, no verified company knowledge, no tools, no escalation, and no confidence checks. If the model guessed, the caller would hear the guess out loud.
+
+Latency was also obvious. Phone calls make every pause feel longer. Waiting for speech capture, a blocking model call, and a full spoken response was fine for learning, but not good enough for production support.
+</CaseSection>
+
+<CaseSection id="next" label="Next" title="I would rebuild it around reliability">
+If I rebuilt it now, I would start with the service workflow instead of the model call.
+
+<div className="case-feature-grid">
+  <div>
+    <h3>Streaming voice</h3>
+    <p>Lower latency, interruption handling, and a more natural turn-taking loop.</p>
+  </div>
+  <div>
+    <h3>Grounded answers</h3>
+    <p>Retrieval over approved company knowledge instead of relying on one seed prompt.</p>
+  </div>
+  <div>
+    <h3>State and tools</h3>
+    <p>Track the conversation and call tools for real tasks like tickets, bookings, or order checks.</p>
+  </div>
+  <div>
+    <h3>Handoff</h3>
+    <p>Escalate when confidence is low, the request is sensitive, or the caller asks for a human.</p>
+  </div>
+</div>
+</CaseSection>

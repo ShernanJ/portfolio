@@ -1,0 +1,112 @@
+export const caseStudy = {
+  title: "ENSight: A browser safety layer for Ethereum",
+  summary:
+    "ENSight is a Chrome extension that observes wallet activity and explains high-risk Ethereum interactions before a user signs. I focused on the extension runtime: page-context injection, wallet request observation, per-tab state, and UI-ready safety context.",
+  meta: [
+    { label: "Focus", value: "Web3 extension security" },
+    { label: "Stack", value: "WXT, React, TypeScript, Express" },
+    { label: "Year", value: "2026" },
+  ],
+  links: [
+    {
+      label: "Extension Repo",
+      href: "https://github.com/eth-ensight/ensight-extension",
+      type: "github",
+    },
+    {
+      label: "Backend Repo",
+      href: "https://github.com/eth-ensight/ensight-backend",
+      type: "github",
+    },
+    {
+      label: "Web Repo",
+      href: "https://github.com/eth-ensight/ensight-web",
+      type: "github",
+    },
+  ],
+  snapshot: [
+    {
+      label: "Built",
+      value:
+        "A Chrome extension runtime that detects wallet usage, observes high-signal Ethereum requests, and keeps per-tab safety state.",
+    },
+    {
+      label: "Boundary",
+      value:
+        "The extension observes wallet calls without touching private keys, mutating requests, or replacing the user's wallet.",
+    },
+    {
+      label: "Lesson",
+      value:
+        "Browser extensions are split across page scripts, content scripts, service workers, storage, and UI. That shape matters.",
+    },
+  ],
+  sections: [
+    { id: "problem", label: "Problem" },
+    { id: "extension", label: "Extension" },
+    { id: "architecture", label: "Architecture" },
+    { id: "takeaways", label: "Takeaways" },
+  ],
+};
+
+<CaseSection id="problem" label="Problem" title="Wallet prompts hide too much context">
+Ethereum users approve transactions, signatures, wallet connections, and chain changes through small wallet popups. Those prompts often show raw addresses or generic signing text, but not much about what the site is actually trying to do.
+
+ENSight explored a simple idea: sit beside the wallet as a read-only safety layer. Watch for meaningful wallet activity, explain it in plain language, and surface risk context before the user signs.
+</CaseSection>
+
+<CaseSection id="extension" label="Extension" title="The extension had to observe the dApp from inside the page">
+The hard part was browser isolation. Wallets inject `window.ethereum` into the page's JavaScript world. A normal content script can use extension APIs, but it cannot reliably see that same object. ENSight solves this with an injected page-context script that wraps `ethereum.request`, emits sanitized lifecycle events, and then lets the original request continue normally.
+
+<div className="case-flow" aria-label="ENSight extension signal flow">
+  <div>Page script sees wallet</div>
+  <span>to</span>
+  <div>Wrap ethereum.request</div>
+  <span>to</span>
+  <div>Send event to content script</div>
+  <span>to</span>
+  <div>Background tracks tab state</div>
+  <span>to</span>
+  <div>UI shows context</div>
+</div>
+
+The extension filtered for high-signal methods: wallet connects, transactions, signatures, typed-data signing, and chain changes. It did not need to bother the user just because a page had a wallet provider.
+
+<CaseImage
+  alt="ENSight extension flow diagram showing a dApp, injected page context script, content script, background service worker, and side panel UI."
+  aspect="16 / 9"
+  caption="The core flow: observe wallet calls in the page, bridge events into the extension, and render safety context in the UI."
+  src="/data/images/optimized/work/ensight-extension-flow.webp"
+/>
+</CaseSection>
+
+<CaseSection id="architecture" label="Architecture" title="Extension first, backend second">
+The extension was the core product surface. It owned detection, request lifecycle tracking, per-tab sessions, local storage snapshots, and popup or side-panel state. The backend and web repos added product shape around it: ENS resolution, risk lookups, interaction graph endpoints, onboarding, and demos.
+
+<div className="case-feature-grid">
+  <div>
+    <h3>Page-context injection</h3>
+    <p>Observed wallet activity where the dApp and provider actually run.</p>
+  </div>
+  <div>
+    <h3>Manifest V3 state</h3>
+    <p>Used background and storage snapshots so UI state survived service worker restarts.</p>
+  </div>
+  <div>
+    <h3>Safety context</h3>
+    <p>Collapsed before, after, and error events into request records the UI could explain.</p>
+  </div>
+  <div>
+    <h3>Enrichment</h3>
+    <p>Backend services could add ENS data, risk lookup, and wallet interaction context.</p>
+  </div>
+</div>
+</CaseSection>
+
+<CaseSection id="takeaways" label="Takeaways" title="The signal has to be reliable before the explanation matters">
+The most useful learning was not Web3-specific. It was learning how many moving parts a Chrome extension really has. A page script, content script, background service worker, popup, side panel, tab lifecycle, and local storage can all disagree if the state model is loose.
+
+The second learning was about safety products: stay quiet until the moment matters. Detecting a wallet provider is not enough. The useful moment is when a site asks the wallet to do something.
+
+If I kept building ENSight, I would finish the side panel, decode common transaction and signature types, and add focused risk heuristics before expanding into broader reputation features.
+</CaseSection>

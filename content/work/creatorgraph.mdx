@@ -1,0 +1,129 @@
+export const caseStudy = {
+  title: "CreatorGraph: Finding creators who fit a brand's niche",
+  summary:
+    "I built CreatorGraph as a brand-side creator discovery prototype. It analyzes a brand's niche, uses Google dork-style search to find creators across the web, scrapes public profile and content signals, then ranks creators by niche compatibility.",
+  meta: [
+    { label: "Focus", value: "Creator discovery" },
+    { label: "Proof", value: "Working search + matching pipeline" },
+    { label: "Stack", value: "Next.js, PostgreSQL, Playwright, Groq" },
+    { label: "Year", value: "2026" },
+  ],
+  snapshot: [
+    {
+      label: "Built",
+      value:
+        "A web-scraping pipeline that finds creators, extracts niche signals, and compares them against a brand profile.",
+    },
+    {
+      label: "Technical core",
+      value:
+        "Google dork-style indexing, platform scraping, creator enrichment, niche extraction, and compatibility scoring.",
+    },
+    {
+      label: "Lesson",
+      value:
+        "Creator discovery is only useful when the recommendation explains why a creator fits the brand.",
+    },
+  ],
+  sections: [
+    { id: "origin", label: "Origin" },
+    { id: "problem", label: "Problem" },
+    { id: "workflow", label: "Workflow" },
+    { id: "discovery", label: "Discovery" },
+    { id: "matching", label: "Matching" },
+    { id: "learned", label: "Lessons" },
+  ],
+};
+
+<CaseSection id="origin" label="Origin" title="The idea started at a Stan event, but the product became broader">
+CreatorGraph came out of a Stan co-working build-in-public event. That shaped the first version: I started by looking for Stan creators and used that ecosystem as the entry point.
+
+The actual product idea was broader than Stan.store. I wanted to know if a brand could enter its website, have the system understand its niche, and get a shortlist of creators whose public content looked compatible with that brand.
+
+<CaseImage
+  alt="CreatorGraph interface for brand-to-creator matching."
+  aspect="16 / 10"
+  caption="The project started around Stan creators, then expanded into a wider creator discovery and matching pipeline."
+  src="/data/images/optimized/work/creatorgraph-showcase.webp"
+/>
+</CaseSection>
+
+<CaseSection id="problem" label="Problem" title="The hard part is finding creators who actually fit">
+Brands can search X, TikTok, Instagram, LinkedIn, Google, and storefronts manually. That quickly turns into guesswork. A profile can look active while the creator's content has nothing to do with the brand's niche.
+
+CreatorGraph focused on the step after search: understanding whether a creator is actually relevant to a specific brand. That meant collecting public signals, extracting niche context, and making the match reason clear enough for a human to inspect.
+</CaseSection>
+
+<CaseSection id="workflow" label="Workflow" title="Brand niche to creator match">
+The product flow starts with a brand URL. CreatorGraph analyzes the brand, searches the web for possible creators, scrapes their public profiles and content, identifies creator niches, then compares those niches against the brand.
+
+<div className="case-flow" aria-label="CreatorGraph product workflow">
+  <div>Analyze brand niche</div>
+  <span>to</span>
+  <div>Index creator candidates</div>
+  <span>to</span>
+  <div>Scrape public profiles</div>
+  <span>to</span>
+  <div>Extract creator niches</div>
+  <span>to</span>
+  <div>Score brand fit</div>
+</div>
+
+<div className="case-feature-grid">
+  <div>
+    <h3>Brand analysis</h3>
+    <p>Turns a brand website into category, audience, product, campaign, and niche signals.</p>
+  </div>
+  <div>
+    <h3>Web indexing</h3>
+    <p>Uses Google dork-style queries to find creator pages across X, TikTok, Instagram, LinkedIn, Google, and Stan.store.</p>
+  </div>
+  <div>
+    <h3>Creator enrichment</h3>
+    <p>Collects profile copy, links, storefront details, content themes, and other public clues.</p>
+  </div>
+  <div>
+    <h3>Compatibility ranking</h3>
+    <p>Scores creators against the brand's niche so the shortlist is based on fit, not just discovery.</p>
+  </div>
+</div>
+</CaseSection>
+
+<CaseSection id="discovery" label="Discovery" title="Google became the creator index">
+There was no single creator directory I could rely on, so I used Google as the discovery layer. Search operators uncovered indexed creator pages, social profiles, storefronts, and cross-linked accounts.
+
+Stan.store was useful because of the event origin, but it was not the whole system. CreatorGraph also looked at X, TikTok, Instagram, LinkedIn, Google results, and other public web traces.
+
+Each result was evidence, not truth. A result could point to a creator, a storefront, a social profile, or a noisy match, so the pipeline kept source context before ranking anything.
+</CaseSection>
+
+<CaseSection id="matching" label="Matching" title="The matcher compared creator content against the brand's niche">
+After discovery, CreatorGraph checked each creator's public content and profile context for niche signals. A skincare brand should not just get popular creators. It should get creators whose content actually makes sense for skincare.
+
+The matcher compared brand category, creator topics, profile language, storefront positioning, platform presence, and content themes. The output was a compatibility score with reasons, so the recommendation could be checked.
+
+<div className="case-feature-grid">
+  <div>
+    <h3>Niche fit</h3>
+    <p>Compares brand category and campaign intent against creator content themes and profile positioning.</p>
+  </div>
+  <div>
+    <h3>Platform fit</h3>
+    <p>Checks whether the creator's public presence matches where the brand would likely run a campaign.</p>
+  </div>
+  <div>
+    <h3>Evidence trail</h3>
+    <p>Keeps the source pages and extracted signals visible enough to debug bad matches.</p>
+  </div>
+  <div>
+    <h3>Explainable ranking</h3>
+    <p>Ranks creators with reasons instead of returning a mysterious black-box list.</p>
+  </div>
+</div>
+</CaseSection>
+
+<CaseSection id="learned" label="Lessons" title="Scraping was only useful if the match was explainable">
+Scraping more pages did not automatically make the product better. The value came from turning messy public signals into a recommendation that felt grounded and inspectable.
+
+If I extended CreatorGraph, I would make the review loop stronger: let users approve or reject matches, correct creator niches, merge duplicate profiles, and feed those decisions back into ranking. That would turn the prototype from a one-shot search tool into a learning creator research workspace.
+</CaseSection>

@@ -1,11 +1,10 @@
-import { Footer } from "@/components/footer";
 import { Intro } from "@/components/intro";
 import { LifeSection } from "@/components/life-section";
+import { PageShell } from "@/components/page-shell";
 import { ProjectList } from "@/components/project-list";
-import { SectionNav } from "@/components/section-nav";
 
 const sections = [
-  { id: "intro", label: "Intro" },
+  { href: "/", id: "intro", label: "Intro", scrollToTop: true },
   { id: "work", label: "Work" },
   { id: "life", label: "Life" },
 ];
@@ -13,13 +12,11 @@ const sections = [
 export default function Home() {
   return (
     <main>
-      <div className="site-shell">
-        <SectionNav items={sections} />
+      <PageShell className="site-shell" navItems={sections}>
         <Intro />
         <ProjectList />
         <LifeSection />
-        <Footer />
-      </div>
+      </PageShell>
     </main>
   );
 }

@@ -12,9 +12,14 @@ export const site = {
   description:
     "I have fun building software, creating content, and partying at EDM festivals / raves\u00A0😎",
   links: [
-    { label: "GitHub", href: "#", placeholder: true },
-    { label: "LinkedIn", href: "#", placeholder: true },
-    { label: "X", href: "#", placeholder: true },
-    { label: "Resume", href: "#", placeholder: true },
+    { label: "GitHub", href: "https://github.com/ShernanJ", external: true },
+    {
+      label: "LinkedIn",
+      href: "https://linkedin.com/in/shernanjavier",
+      external: true,
+    },
+    { label: "X", href: "https://x.com/shernanjavier", external: true },
+    { label: "Resume", href: "/Shernan_Javier_Resume.pdf" },
+    { label: "Contact", href: "mailto:shernanjavier@gmail.com" },
   ] satisfies SiteLink[],
 };

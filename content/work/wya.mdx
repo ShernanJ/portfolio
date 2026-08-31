@@ -1,0 +1,40 @@
+export const caseStudy = {
+  title: "WYA App: Finding friends when service fails",
+  summary:
+    "WYA is a mobile app idea for live events where crowds, noise, and weak signal make it hard to find your group. The concept uses Bluetooth proximity to help friends reconnect without depending entirely on cell service.",
+  meta: [
+    { label: "Focus", value: "Mobile, Bluetooth" },
+    { label: "Status", value: "Concept prototype" },
+  ],
+  snapshot: [
+    {
+      label: "Idea",
+      value:
+        "A lightweight friend-finding app for concerts, festivals, and crowded nightlife settings.",
+    },
+    {
+      label: "Constraint",
+      value:
+        "The app has to stay useful when GPS is rough, data is weak, and people are moving through dense crowds.",
+    },
+    {
+      label: "Focus",
+      value:
+        "Simple proximity, clear status, and a flow that works while distracted.",
+    },
+  ],
+  sections: [
+    { id: "overview", label: "Overview" },
+    { id: "product", label: "Product" },
+  ],
+};
+
+<CaseSection id="overview" label="Overview" title="A social utility for chaotic venues">
+WYA is for the moment when everyone says "where you at?" and nobody can explain it well. In loud, crowded spaces, a normal map pin is often too slow or too vague.
+</CaseSection>
+
+<CaseSection id="product" label="Product" title="The useful version stays simple">
+The product idea is proximity first: show whether your friends are nearby, getting closer, or out of range. The app should avoid heavy setup and work when someone only has a few seconds of attention.
+
+The interesting constraint is not just Bluetooth. It is designing a flow that still makes sense in a messy live-event environment.
+</CaseSection>

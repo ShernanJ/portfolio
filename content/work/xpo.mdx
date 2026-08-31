@@ -1,0 +1,124 @@
+export const caseStudy = {
+  title: "Xpo: An AI growth tool for X",
+  summary:
+    "I built Xpo in public after a challenge from Stan's CTO: help creators get from 0 to 1000 followers on X. The project became a web app and browser extension for account analysis, voice-aware drafting, and reply opportunities.",
+  meta: [
+    { label: "Focus", value: "AI distribution" },
+    { label: "Built", value: "Web app + browser extension" },
+    { label: "Stack", value: "Next.js, Prisma, Stripe, Groq" },
+    { label: "Timeline", value: "March 2026" },
+  ],
+  links: [
+    { label: "Live Demo", href: "https://www.xpo.lol/", type: "live" },
+    {
+      label: "Video",
+      href: "https://tv.shernanjavier.com/watch/4c845efc-ea8d-4d92-ac46-e4848abd2ef3",
+      type: "video",
+    },
+  ],
+  snapshot: [
+    {
+      label: "Built",
+      value:
+        "A full-stack AI product with onboarding, X account analysis, drafting workflows, billing, and extension APIs.",
+    },
+    {
+      label: "Extension",
+      value:
+        "A companion extension that could inspect visible X posts, rank reply opportunities, and draft context-aware replies.",
+    },
+    {
+      label: "Takeaway",
+      value:
+        "The reply-networking wedge was stronger than the broader creator platform I built around it.",
+    },
+  ],
+  sections: [
+    { id: "origin", label: "Origin" },
+    { id: "product", label: "Product" },
+    { id: "build", label: "Build" },
+    { id: "lesson", label: "Lesson" },
+  ],
+};
+
+<CaseSection id="origin" label="Origin" title="A public challenge became a sprint">
+Xpo started at a Stan co-working event. I had just posted CreatorGraph, and the Stan team noticed it. A few conversations later, Vitalii, Stan's CTO, challenged me publicly: solve the 0 to 1000 followers problem on X.
+
+I treated it as both a product prompt and a hiring-in-public campaign. I built the app, posted updates, and made a walkthrough video. The process did not turn into a role, but the project got attention and made the work easy for people to remember.
+
+<CaseVideoEmbed
+  caption={
+    <>
+      The hiring-in-public walkthrough hosted on{" "}
+      <a href="https://tv.shernanjavier.com" target="_blank" rel="noreferrer">
+        Shernan.TV
+      </a>
+      .
+    </>
+  }
+  poster="https://zwuvmhhexcghsrtzpymj.supabase.co/storage/v1/object/public/thumbnails_bucket/thumbnails/p9rdc62j68h_1778483788144.jpg"
+  src="https://tv.shernanjavier.com/embed/4c845efc-ea8d-4d92-ac46-e4848abd2ef3"
+  title="Xpo hiring in public walkthrough"
+/>
+</CaseSection>
+
+<CaseSection id="product" label="Product" title="The strongest idea was reply-led growth">
+Xpo analyzed a creator's X account, learned their voice, drafted posts, and helped them find better conversations to join. The web app handled onboarding, chat, post analysis, source material, billing, and account strategy. The extension brought the workflow into X itself.
+
+<CaseImage
+  alt="Xpo landing page for an X growth engine."
+  aspect="16 / 10"
+  caption="The standalone app showed the broader product, but the extension was closer to the real growth loop."
+  src="/data/images/optimized/work/xpo-showcase.webp"
+/>
+
+<div className="case-feature-grid">
+  <div>
+    <h3>Account analysis</h3>
+    <p>Scraped or imported X profile data, then summarized positioning, topics, hooks, and growth stage.</p>
+  </div>
+  <div>
+    <h3>Voice-aware drafting</h3>
+    <p>Generated posts and revisions from a creator's style profile, source material, and previous content.</p>
+  </div>
+  <div>
+    <h3>Reply opportunities</h3>
+    <p>Read visible X posts, ranked which ones were worth replying to, and generated replies with context.</p>
+  </div>
+  <div>
+    <h3>Billing and accounts</h3>
+    <p>Shipped real product plumbing: auth, Stripe, persistence, onboarding state, and extension tokens.</p>
+  </div>
+</div>
+</CaseSection>
+
+<CaseSection id="build" label="Build" title="I shipped both a product and a browser surface">
+The first prototype translated LinkedIn-style writing into X-native drafts. That made the problem visible, but it was still too focused on formatting. The better version was the extension: find a real post, understand the conversation, decide whether a reply is worth making, and draft something that sounds like the creator.
+
+<div className="case-flow" aria-label="Xpo product workflow">
+  <div>Analyze account</div>
+  <span>to</span>
+  <div>Learn voice</div>
+  <span>to</span>
+  <div>Find reply targets</div>
+  <span>to</span>
+  <div>Draft replies</div>
+  <span>to</span>
+  <div>Learn what works</div>
+</div>
+
+<CaseImage
+  alt="Stanley X extension interface showing an X-native draft preview beside a Stanley-style draft."
+  aspect="16 / 9"
+  caption="The first extension surface compared LinkedIn-style drafts with X-native versions."
+  src="/data/images/optimized/work/stanley-extension.webp"
+/>
+</CaseSection>
+
+<CaseSection id="lesson" label="Lesson" title="I should have built the narrow wedge first">
+The project showed range: product design, extension work, auth, billing, scraping, AI workflows, and a public launch story. The mistake was scope. The challenge was not "build an AI creator platform." It was "help someone get from 0 to 1000 followers on X."
+
+The sharper MVP would have been just the reply loop: find high-signal posts, explain why they are worth replying to, generate a few good replies in the creator's voice, and learn from what they choose.
+
+That is the version I would build first now. Broad systems are fun, but a narrow workflow is easier to validate.
+</CaseSection>

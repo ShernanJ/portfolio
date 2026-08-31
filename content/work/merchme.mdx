@@ -1,0 +1,93 @@
+export const caseStudy = {
+  title: "MerchMe: A UGC marketplace for brands and creators",
+  summary:
+    "I co-founded and built MerchMe, a two-sided marketplace for paid UGC campaigns. Brands could post bounties, review creator applications, manage submissions, and pay for approved work. The product reached 5 brands and 100+ users.",
+  meta: [
+    { label: "Role", value: "Co-Founder" },
+    { label: "Focus", value: "UGC marketplace" },
+    { label: "Traction", value: "5 brands, 100+ users" },
+    { label: "Stack", value: "Next.js, NestJS, Supabase, Stripe" },
+    { label: "Timeline", value: "Jun 2025 - Dec 2025" },
+  ],
+  snapshot: [
+    {
+      label: "Built",
+      value:
+        "Brand and creator dashboards, bounty pages, applications, invitations, submission batches, referrals, messaging, and payments.",
+    },
+    {
+      label: "Core loop",
+      value:
+        "Brand posts campaign, creator applies, creator submits content, brand reviews, approved work moves toward payout.",
+    },
+    {
+      label: "Lesson",
+      value:
+        "The software worked, but liquidity mattered more than adding more product surface.",
+    },
+  ],
+  sections: [
+    { id: "context", label: "Context" },
+    { id: "product", label: "Product" },
+    { id: "build", label: "Build" },
+    { id: "lesson", label: "Lesson" },
+  ],
+};
+
+<CaseSection id="context" label="Context" title="The product pivoted from merch to UGC">
+MerchMe started as a print-on-demand idea for helping people launch merch lines. As we talked to users and looked at the market, the better opportunity became clearer: brands needed short-form creator content, and creators needed a more structured way to find paid work.
+
+So the product pivoted into a UGC marketplace. The name stayed, but the transaction changed.
+</CaseSection>
+
+<CaseSection id="product" label="Product" title="Bounties made the marketplace easy to understand">
+The product centered on bounties: a brand posts a paid campaign, and creators apply or get invited to submit content. That gave both sides a simple object to rally around.
+
+<div className="case-feature-grid">
+  <div>
+    <h3>Brand dashboard</h3>
+    <p>Create company profiles, launch campaigns, review applications, invite creators, message participants, and track activity.</p>
+  </div>
+  <div>
+    <h3>Creator dashboard</h3>
+    <p>Build a profile, browse bounties, apply to campaigns, submit work, and track earnings.</p>
+  </div>
+  <div>
+    <h3>Public bounty pages</h3>
+    <p>Shareable campaign pages helped discovery and referrals happen outside the dashboard.</p>
+  </div>
+  <div>
+    <h3>Submission review</h3>
+    <p>Batch submissions matched how brands actually review UGC: several assets at once, then approval and payout decisions.</p>
+  </div>
+</div>
+</CaseSection>
+
+<CaseSection id="build" label="Build" title="I built the full marketplace stack">
+The frontend was a Next.js app for the brand and creator experience. The backend was a NestJS REST API with Supabase auth and Postgres, Stripe payments, SendGrid emails, Redis caching, rate limiting, and Swagger docs.
+
+<div className="case-flow" aria-label="MerchMe marketplace workflow">
+  <div>Brand posts bounty</div>
+  <span>to</span>
+  <div>Creator applies</div>
+  <span>to</span>
+  <div>Creator submits batch</div>
+  <span>to</span>
+  <div>Brand reviews</div>
+  <span>to</span>
+  <div>Creator gets paid</div>
+</div>
+
+<ul className="case-list">
+  <li>Modeled campaigns, applications, invitations, submissions, payouts, referrals, messages, and metrics.</li>
+  <li>Added payments and webhook flows with Stripe.</li>
+  <li>Scraped Instagram and TikTok metadata where it helped creator profiles.</li>
+  <li>Kept brand and creator flows separate so each side had a clear workspace.</li>
+</ul>
+</CaseSection>
+
+<CaseSection id="lesson" label="Lesson" title="Marketplace liquidity beat feature depth">
+The hard part was not building another dashboard. It was getting enough brands and enough creators to show up at the same time.
+
+If I were doing it again, I would start narrower: one brand category, one creator type, and a more manual concierge flow before building every self-serve feature. Once the transaction repeats, automation becomes much easier to justify.
+</CaseSection>

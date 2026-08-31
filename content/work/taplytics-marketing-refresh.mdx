@@ -1,0 +1,84 @@
+export const caseStudy = {
+  title: "Taplytics: Reusable marketing pages in WordPress",
+  summary:
+    "During my first internship, I worked on frontend improvements for Taplytics. Most of the work was inside a custom WordPress theme: PHP templates, reusable page sections, CMS editing flows, and designer-led marketing pages.",
+  meta: [
+    { label: "Role", value: "Software Engineer Intern" },
+    { label: "Focus", value: "Frontend, WordPress templates" },
+    { label: "Team", value: "Designer + marketing collaboration" },
+    { label: "Stack", value: "PHP, WordPress, React" },
+    { label: "Year", value: "2024" },
+  ],
+  snapshot: [
+    {
+      label: "Built",
+      value:
+        "Reusable PHP templates and CMS-backed sections for marketing pages.",
+    },
+    {
+      label: "Impact",
+      value:
+        "Marketing could edit and assemble approved page sections without needing a one-off engineering change every time.",
+    },
+    {
+      label: "Also",
+      value:
+        "Contributed React components inside the product interface.",
+    },
+  ],
+  sections: [
+    { id: "context", label: "Context" },
+    { id: "work", label: "Work" },
+    { id: "lesson", label: "Lesson" },
+    { id: "note", label: "Note" },
+  ],
+};
+
+<CaseSection id="context" label="Context" title="My first frontend internship">
+Taplytics was my first software internship. I worked mostly on the marketing site, close to a designer and the marketing team. The goal was practical: make pages easier to build, edit, and publish without losing the design system of the site.
+</CaseSection>
+
+<CaseSection id="work" label="Work" title="I built reusable page sections">
+The site used a custom WordPress theme, so the work was not just dragging blocks in a page builder. I built PHP templates and reusable sections that marketing could configure through the CMS.
+
+<div className="case-flow" aria-label="Taplytics marketing page workflow">
+  <div>Designer defines section</div>
+  <span>to</span>
+  <div>PHP template implements it</div>
+  <span>to</span>
+  <div>Marketing edits content</div>
+  <span>to</span>
+  <div>Sections are reused</div>
+  <span>to</span>
+  <div>Pages ship faster</div>
+</div>
+
+<div className="case-feature-grid">
+  <div>
+    <h3>PHP templates</h3>
+    <p>Built reusable layouts and section variants inside the custom theme.</p>
+  </div>
+  <div>
+    <h3>CMS editing</h3>
+    <p>Made copy, images, and section ordering editable by marketing.</p>
+  </div>
+  <div>
+    <h3>Responsive polish</h3>
+    <p>Worked through spacing, content length, and page behaviour across screens.</p>
+  </div>
+  <div>
+    <h3>Product React</h3>
+    <p>Also helped with React components in the Taplytics product UI.</p>
+  </div>
+</div>
+</CaseSection>
+
+<CaseSection id="lesson" label="Lesson" title="Good frontend work gives other teams leverage">
+The useful part of this internship was realizing that frontend work does not end at matching a mockup. The better outcome was giving marketing a system they could keep using after the first page shipped.
+
+It also taught me how much detail sits between design and implementation: CMS fields, empty states, image treatment, long copy, responsive behaviour, and reusable variants.
+</CaseSection>
+
+<CaseSection id="note" label="Note" title="Company note">
+This internship was at Taplytics before the company became more associated with DevCycle and before DevCycle's later acquisition by Dynatrace.
+</CaseSection>

@@ -8,7 +8,10 @@ type ProjectVisualProps = {
 export function ProjectVisual({ project }: ProjectVisualProps) {
   const visualStyle = {
     "--project-background": project.visual.background,
-    "--project-fit": project.visual.fit ?? "cover",
+  } as React.CSSProperties;
+  const mediaStyle = {
+    objectFit: "cover",
+    objectPosition: "center",
   } as React.CSSProperties;
 
   return (
@@ -30,6 +33,7 @@ export function ProjectVisual({ project }: ProjectVisualProps) {
           playsInline
           poster={project.media.poster}
           preload="metadata"
+          style={mediaStyle}
         >
           <source src={project.media.src} />
         </video>
@@ -40,6 +44,7 @@ export function ProjectVisual({ project }: ProjectVisualProps) {
           fill
           sizes="(max-width: 760px) 100vw, 1100px"
           src={project.media.src}
+          style={mediaStyle}
         />
       ) : project.image ? (
         <Image
@@ -48,6 +53,7 @@ export function ProjectVisual({ project }: ProjectVisualProps) {
           fill
           sizes="(max-width: 760px) 100vw, 1100px"
           src={project.image}
+          style={mediaStyle}
         />
       ) : (
         <span>{project.name}</span>

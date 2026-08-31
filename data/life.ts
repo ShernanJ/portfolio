@@ -1,48 +1,39 @@
-export type Hobby = {
+import lifeItemsJson from "@/data/life.json";
+
+export type LifeMeta = {
   label: string;
-  detail: string;
+  value: string;
 };
 
-export type RaveEvent = {
-  name: string;
-  timing: string;
-  status: "went" | "planned";
+export type LifeSectionContent = {
+  body: string[];
+  id: string;
+  label: string;
+  title: string;
 };
 
-export const hobbies: Hobby[] = [
-  {
-    label: "Building",
-    detail: "Software, experiments, content, and small ideas that turn into bigger ones.",
-  },
-  {
-    label: "Training",
-    detail: "Sports, lifting, and keeping enough energy for the rest of life.",
-  },
-  {
-    label: "Raving",
-    detail: "EDM festivals, late nights, and finding the next set worth remembering.",
-  },
-];
+export type LifeItem = {
+  alt?: string;
+  aspect: string;
+  background: string;
+  image?: string;
+  isClickable?: boolean;
+  meta?: LifeMeta[];
+  objectPosition?: string;
+  sections: LifeSectionContent[];
+  shortDescription?: string;
+  slug: string;
+  title: string;
+};
 
-export const raveTimeline: RaveEvent[] = [
-  {
-    name: "Recent festival",
-    timing: "Went",
-    status: "went",
-  },
-  {
-    name: "Toronto show",
-    timing: "Went",
-    status: "went",
-  },
-  {
-    name: "Next festival",
-    timing: "Planned",
-    status: "planned",
-  },
-  {
-    name: "Next rave night",
-    timing: "Planned",
-    status: "planned",
-  },
-];
+export const lifeItems = lifeItemsJson as LifeItem[];
+
+export function getLifeItem(slug: string) {
+  return lifeItems.find((item) => item.isClickable && item.slug === slug);
+}
+
+export function getLifeItemSlugs() {
+  return lifeItems
+    .filter((item) => item.isClickable)
+    .map((item) => item.slug);
+}
