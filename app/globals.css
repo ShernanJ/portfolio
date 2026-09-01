@@ -1053,20 +1053,26 @@ a.life-photo-card:focus-visible {
   .intro {
     align-items: start;
     gap: 24px;
+    grid-template-columns: 1fr;
     margin-bottom: 54px;
   }
 
   .intro-topline {
-    gap: 14px;
-    grid-template-columns: 1fr;
+    display: contents;
+  }
+
+  .eyebrow {
+    order: 1;
   }
 
   .intro-copy {
+    order: 2;
     width: 100%;
   }
 
   .intro-links {
     justify-self: start;
+    order: 3;
   }
 
   .page-section {
@@ -1122,12 +1128,15 @@ a.life-photo-card:focus-visible {
   }
 
   .life-masonry {
-    column-count: 1;
-    column-width: auto;
+    display: grid;
+    gap: 16px;
+    grid-template-columns: minmax(0, 1fr);
   }
 
   .life-photo-card {
-    max-height: min(54vh, 420px);
+    margin-bottom: 0;
+    max-width: none;
+    width: 100%;
   }
 
   .footer {
