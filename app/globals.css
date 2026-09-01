@@ -70,6 +70,15 @@ a:focus-visible {
   z-index: 10;
 }
 
+.section-nav-toggle {
+  display: none;
+}
+
+.section-nav-panel {
+  display: grid;
+  gap: 22px;
+}
+
 .section-nav-primary {
   display: grid;
   gap: 10px;
@@ -1047,7 +1056,82 @@ a.life-photo-card:focus-visible {
   }
 
   .section-nav {
+    display: block;
+    left: auto;
+    right: 16px;
+    top: 40px;
+    width: auto;
+    z-index: 30;
+  }
+
+  .section-nav-toggle {
+    align-items: center;
+    background: transparent;
+    border: 0;
+    color: #8a8a8a;
+    cursor: pointer;
+    display: inline-flex;
+    flex-direction: column;
+    gap: 3px;
+    height: 28px;
+    justify-content: center;
+    padding: 0;
+    transition: color 150ms ease;
+    width: 28px;
+  }
+
+  .section-nav-toggle span {
+    background: currentColor;
+    display: block;
+    height: 1px;
+    transition: opacity 150ms ease, transform 150ms ease;
+    width: 14px;
+  }
+
+  .section-nav-toggle:hover,
+  .section-nav-toggle:focus-visible,
+  .section-nav.is-open .section-nav-toggle {
+    color: var(--foreground);
+  }
+
+  .section-nav.is-open .section-nav-toggle span:first-child {
+    transform: translateY(4px) rotate(45deg);
+  }
+
+  .section-nav.is-open .section-nav-toggle span:nth-child(2) {
+    opacity: 0;
+  }
+
+  .section-nav.is-open .section-nav-toggle span:last-child {
+    transform: translateY(-4px) rotate(-45deg);
+  }
+
+  .section-nav-panel {
+    background: rgba(255, 255, 255, 0.98);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    box-shadow: 0 8px 22px rgba(0, 0, 0, 0.05);
     display: none;
+    gap: 8px;
+    margin-top: 6px;
+    min-width: 104px;
+    padding: 10px;
+    position: absolute;
+    right: 0;
+    top: 100%;
+  }
+
+  .section-nav.is-open .section-nav-panel {
+    display: grid;
+  }
+
+  .section-nav-primary {
+    gap: 8px;
+  }
+
+  .section-nav a {
+    color: #737373;
+    padding: 4px 0;
   }
 
   .intro {

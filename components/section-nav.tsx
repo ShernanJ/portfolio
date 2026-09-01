@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useId, useRef, useState } from "react";
 
 export type SectionNavItem = {
   href?: string;
@@ -20,7 +20,10 @@ type SectionNavProps = {
 
 export function SectionNav({ backItem, items }: SectionNavProps) {
   const [activeId, setActiveId] = useState(items[0]?.id ?? "");
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const menuId = useId();
   const manualSelectionUntil = useRef(0);
+  const navRef = useRef<HTMLElement>(null);
   const updateActiveSection = useRef(() => {});
   const scrollOffset = 42;
 
@@ -101,51 +104,103 @@ export function SectionNav({ backItem, items }: SectionNavProps) {
     };
   }, [items]);
 
+  useEffect(() => {
+    if (!isMenuOpen) {
+      return;
+    }
+
+    const handlePointerDown = (event: PointerEvent) => {
+      if (
+        event.target instanceof Node &&
+        !navRef.current?.contains(event.target)
+      ) {
+        setIsMenuOpen(false);
+      }
+    };
+
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key === "Escape") {
+        setIsMenuOpen(false);
+      }
+    };
+
+    document.addEventListener("pointerdown", handlePointerDown);
+    document.addEventListener("keydown", handleKeyDown);
+
+    return () => {
+      document.removeEventListener("pointerdown", handlePointerDown);
+      document.removeEventListener("keydown", handleKeyDown);
+    };
+  }, [isMenuOpen]);
+
   return (
-    <nav aria-label="Page sections" className="section-nav">
-      {backItem ? (
-        <Link className="section-nav-back" href={backItem.href}>
-          {backItem.label}
-        </Link>
-      ) : null}
-      <div className="section-nav-primary">
-        {items.map((item) => (
-          <a
-            aria-current={activeId === item.id ? "location" : undefined}
-            href={item.href ?? `#${item.id}`}
-            key={item.id}
-            onClick={(event) => {
-              const element = document.getElementById(item.id);
-
-              event.preventDefault();
-              manualSelectionUntil.current = Date.now() + 900;
-              setActiveId(item.id);
-
-              if (item.scrollToTop) {
-                window.history.pushState(null, "", item.href ?? "/");
-                window.scrollTo({ behavior: "smooth", top: 0 });
-                window.setTimeout(() => updateActiveSection.current(), 950);
-                return;
-              }
-
-              if (!element) {
-                return;
-              }
-
-              window.history.pushState(null, "", `#${item.id}`);
-              window.scrollTo({
-                behavior: "smooth",
-                top:
-                  element.getBoundingClientRect().top +
-                  window.scrollY -
-                  scrollOffset,
-              });
-              window.setTimeout(() => updateActiveSection.current(), 950);
-            }}
+    <nav
+      aria-label="Page sections"
+      className={`section-nav${isMenuOpen ? " is-open" : ""}`}
+      ref={navRef}
+    >
+      <button
+        aria-controls={menuId}
+        aria-expanded={isMenuOpen}
+        aria-label="Toggle page navigation"
+        className="section-nav-toggle"
+        onClick={() => setIsMenuOpen((current) => !current)}
+        type="button"
+      >
+        <span />
+        <span />
+        <span />
+      </button>
+      <div className="section-nav-panel" id={menuId}>
+        {backItem ? (
+          <Link
+            className="section-nav-back"
+            href={backItem.href}
+            onClick={() => setIsMenuOpen(false)}
           >
-            {item.label}
-          </a>
-        ))}
+            {backItem.label}
+          </Link>
+        ) : null}
+        <div className="section-nav-primary">
+          {items.map((item) => (
+            <a
+              aria-current={activeId === item.id ? "location" : undefined}
+              href={item.href ?? `#${item.id}`}
+              key={item.id}
+              onClick={(event) => {
+                const element = document.getElementById(item.id);
+
+                event.preventDefault();
+                setIsMenuOpen(false);
+                manualSelectionUntil.current = Date.now() + 900;
+                setActiveId(item.id);
+
+                if (item.scrollToTop) {
+                  window.history.pushState(null, "", item.href ?? "/");
+                  window.scrollTo({ behavior: "smooth", top: 0 });
+                  window.setTimeout(() => updateActiveSection.current(), 950);
+                  return;
+                }
+
+                if (!element) {
+                  return;
+                }
+
+                window.history.pushState(null, "", `#${item.id}`);
+                window.scrollTo({
+                  behavior: "smooth",
+                  top:
+                    element.getBoundingClientRect().top +
+                    window.scrollY -
+                    scrollOffset,
+                });
+                window.setTimeout(() => updateActiveSection.current(), 950);
+              }}
+            >
+              {item.label}
+            </a>
+          ))}
+        </div>
       </div>
     </nav>
   );
